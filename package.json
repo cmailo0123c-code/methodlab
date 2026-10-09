@@ -1,0 +1,11 @@
+{
+  "name": "method-lab-demo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "media": "node scripts/descargar-media.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.0"
+  }
+}
