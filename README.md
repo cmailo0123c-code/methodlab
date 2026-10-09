@@ -1,40 +1,22 @@
-# Method Lab — DEMO del nuevo sitio
+# Method Lab — rediseño (estático, vanilla)
 
-Demostración visual y funcional. **Sin conexión a Shopify**: ningún botón compra, redirige a la tienda ni envía datos.
+HTML/CSS/JS sin dependencias. Fuentes self-hosted (Barlow Condensed 600/700 + Manrope variable, subset latin).
+Imágenes: se sirven desde el CDN de Shopify de methodlab.cl (`?width=` → WebP automático).
 
-## Subir a GitHub / Vercel
-Sube el contenido de esta carpeta (index.html en la raíz). Vercel lo publica sin configuración.
+## Compra (Shopify)
+- Configurador con las 64 variantes reales (2 productos × 4 días × 4 duraciones × con/sin nutri), precios al 9-oct-2026.
+- "Contratar plan" → `https://methodlab.cl/cart/{variant_id}:1` (checkout oficial de Shopify).
+- Al acercarse a #planes intenta leer `/products/<handle>.js` en vivo; si CORS lo bloquea, usa los datos embebidos en `app.js`.
+- Si cambian precios en Shopify y el sitio está fuera del dominio de la tienda: actualizar el array de precios en `app.js`.
 
-## Imágenes reales (hacer 1 vez)
-```
-npm install
-npm run media
-```
-Descarga los 12 originales de methodlab.cl y genera AVIF/WebP/JPG (640–1920 px) en `assets/img/`. Después sube `assets/img/` al repo.
-Mientras no lo hagas, la página carga las mismas fotos desde methodlab.cl automáticamente (nunca se ve rota).
-
-## Qué es demo
-- "Contratar plan" / "Ver detalle": modal con la selección y el aviso de demostración. Sin carrito, checkout ni pedidos.
-- Formulario de evaluación y newsletter: validan, pero no envían ni guardan nada (lo dicen en pantalla).
-- `<meta name="robots" content="noindex">`: quitar al pasar a producción.
-- Botón "Puntos por confirmar" (barra superior): resalta en la página todo lo que hay que validar con el cliente.
-
-## Datos
-- Precios: las 64 combinaciones (2 planes × 4 frecuencias × 4 duraciones × con/sin nutri) copiadas de methodlab.cl el 9-oct-2026, en `app.js`. Si no hay precio, se muestra "Precio por confirmar".
-- El "valor mensual" solo aparece cuando el total es exactamente N × el precio mensual publicado.
-
-## Pendientes de confirmar con el cliente
-1. Horario: inicio dice 5:00–23:00 todos los días; el resto del sitio L–V 6–23 / S-D-feriados 9–19 (se muestra este, marcado).
-2. Dirección: 2970 (confirmada) vs. 2930 (página legal), Andrés Bello 2909 (ficha plan individual), "Las Condes" (meta de la ficha).
-3. Promos "Matrícula gratis" y "3 cuotas sin interés": vigencia.
-4. "Planes de 2 a 3 personas": solo existe el de 2 (colección de 3 personas vacía).
-5. "Resultados garantizados" se renombró a "Un enfoque integral".
-6. Redes sociales: no existen en el sitio actual.
-7. Fichas de producto muestran "Agotado" en todas las variantes.
-
-## Material que no existe en el sitio original
-- Videos: ninguno. Componente listo y oculto en #instalaciones (`assets/video/method-lab.mp4`).
-- Testimonios: ninguno. Sección #testimonios lista y oculta.
-- Logo vectorial (SVG): solo hay raster 300×161.
-- No usadas a propósito: PLANPERSONALIZADO8CLASES / PLANSTANDARD192CLASES (texto "8/192 clases" no verificado) y el banner Sin_titulo_2000x1080 (se archivan en `assets/img/originales/`).
-- Fotos asignadas por su sección original; revisar encuadres una vez descargadas (la portada es un PNG que podría tener texto).
+## PENDIENTE DE APROBACIÓN (no publicar sin confirmar)
+1. Horario: el home actual dice "5:00–23:00 todos los días"; footer y fichas de producto dicen L–V 6:00–23:00 / S-D-festivos 9:00–19:00. Se usó el segundo.
+2. Dirección: la página de contacto legal dice "Bilbao 2930"; el resto del sitio, "2970". Se usó 2970.
+3. La página /pages/nuestros-planes-method-lab muestra ambos planes como "Agotado", pero la API de Shopify los da disponibles. Revisar inventario/tema.
+4. Promos "Matrícula gratis" y "hasta 3 cuotas sin interés": tomadas del sitio actual, confirmar vigencia.
+5. Fotos: asignadas por nombre de archivo sin poder verlas. Revisar encuadre (object-position) y alts de cada una. Hero = DSC02559.jpg.
+6. Se eliminó "Resultados garantizados" (promesa no verificable).
+7. Testimonios: sección oculta (#testimonios) hasta tener testimonios reales y autorizados.
+8. Redes sociales: no se encontraron en el sitio. Agregar Instagram verificado al footer.
+9. Logo: solo existía en raster 300×161 (se hizo PNG/WebP transparente). Pedir el SVG original.
+10. Medios de pago: el sitio no los lista; la FAQ remite al checkout.
