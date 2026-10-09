@@ -317,11 +317,7 @@
       clearTimeout(pcTimer);
       pcBtn.setAttribute('aria-expanded', 'true');
       pcMenu.hidden = false;
-      pcMenu.classList.remove('is-right');
-      if (pcMenu.getBoundingClientRect().right > innerWidth - 8) pcMenu.classList.add('is-right');
       requestAnimationFrame(() => pcMenu.classList.add('is-open'));
-      const b = pcMenu.getBoundingClientRect().bottom, limit = innerHeight - (innerWidth < 1024 ? 90 : 16);
-      if (b > limit) scrollBy({ top: b - limit, behavior: reduce ? 'auto' : 'smooth' });
     };
     const pcClose = (focus) => {
       if (pcBtn.getAttribute('aria-expanded') !== 'true') return;
