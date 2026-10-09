@@ -329,6 +329,5 @@
       fab.classList.add('is-used');
       setOpen(fab.classList.contains('is-collapsed'));
     });
-    setTimeout(flashTips, reduce ? 0 : 1300); // tras la animación de entrada
   }
 })();
