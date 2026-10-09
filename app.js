@@ -309,29 +309,26 @@
 
   const yr = $('#yr'); if (yr) yr.textContent = new Date().getFullYear();
 
-  /* ---------- Contactar profesores (desplegable) ---------- */
-  const pc = $('#pc'), pcBtn = $('#pcBtn'), pcMenu = $('#pcMenu');
-  if (pc) {
-    let pcTimer;
-    const pcOpen = () => {
-      clearTimeout(pcTimer);
-      pcBtn.setAttribute('aria-expanded', 'true');
-      pc.classList.add('is-open', 'is-used');
-      pcMenu.hidden = false;
-      requestAnimationFrame(() => pcMenu.classList.add('is-open'));
+  /* ---------- Contacto flotante: la flecha esconde / muestra los botones ---------- */
+  const fab = $('#fab'), fabToggle = $('#fabToggle'), fabItems = $('#fabItems');
+  if (fab) {
+    let tipTimer;
+    const flashTips = () => { // en celular muestra los nombres de los profesores un momento
+      clearTimeout(tipTimer);
+      fab.classList.add('show-tips');
+      tipTimer = setTimeout(() => fab.classList.remove('show-tips'), 2600);
     };
-    const pcClose = (focus) => {
-      if (pcBtn.getAttribute('aria-expanded') !== 'true') return;
-      pcBtn.setAttribute('aria-expanded', 'false');
-      pc.classList.remove('is-open');
-      pcMenu.classList.remove('is-open');
-      pcTimer = setTimeout(() => { pcMenu.hidden = true; }, reduce ? 0 : 200);
-      if (focus) pcBtn.focus();
+    const setOpen = (open) => {
+      fab.classList.toggle('is-collapsed', !open);
+      fabToggle.setAttribute('aria-expanded', String(open));
+      fabToggle.setAttribute('aria-label', open ? 'Ocultar contactos' : 'Mostrar contactos');
+      fabItems.inert = !open; // ocultos = no reciben foco ni toques
+      if (open) flashTips(); else { clearTimeout(tipTimer); fab.classList.remove('show-tips'); }
     };
-    pcBtn.addEventListener('click', () => (pcBtn.getAttribute('aria-expanded') === 'true' ? pcClose() : pcOpen()));
-    pcMenu.addEventListener('click', (e) => { if (e.target.closest('a')) pcClose(); });
-    d.addEventListener('pointerdown', (e) => { if (!pc.contains(e.target)) pcClose(); });
-    d.addEventListener('keydown', (e) => { if (e.key === 'Escape' && pcBtn.getAttribute('aria-expanded') === 'true') pcClose(true); });
-    pc.addEventListener('focusout', (e) => { if (e.relatedTarget && !pc.contains(e.relatedTarget)) pcClose(); });
+    fabToggle.addEventListener('click', () => {
+      fab.classList.add('is-used');
+      setOpen(fab.classList.contains('is-collapsed'));
+    });
+    setTimeout(flashTips, reduce ? 0 : 1300); // tras la animación de entrada
   }
 })();

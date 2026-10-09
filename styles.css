@@ -399,60 +399,63 @@ body.menu-open{overflow:hidden}
   .hero__media img{transform:none}
 }
 
-/* ---------- Contacto flotante: Instagram, WhatsApp y profesores ---------- */
-.social{--fab:52px;position:fixed;right:max(16px,env(safe-area-inset-right));bottom:calc(24px + env(safe-area-inset-bottom));z-index:85;display:flex;flex-direction:column;gap:12px}
+/* ---------- Contacto flotante: Instagram y WhatsApp de profesores ---------- */
+.social{--fab:52px;position:fixed;right:max(16px,env(safe-area-inset-right));bottom:calc(24px + env(safe-area-inset-bottom));z-index:85;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+.fab__items{display:flex;flex-direction:column;gap:12px}
+/* El contenedor no bloquea clics en la página; solo los botones visibles son clicables */
+.social,.fab__items{pointer-events:none}
+.fab__items>*,.fab__toggle{pointer-events:auto}
 /* Entrada escalonada al cargar */
-.social>*{animation:fabIn 520ms var(--ease-out) backwards}
-.social>:nth-child(1){animation-delay:500ms}
-.social>:nth-child(2){animation-delay:580ms}
-.social>:nth-child(3){animation-delay:660ms}
-@keyframes fabIn{from{opacity:0;transform:translateX(24px) scale(.85)}to{opacity:1;transform:none}}
+.fab__items>*,.fab__toggle{animation:fabIn 520ms var(--ease-out) backwards}
+.fab__items>:nth-child(1){animation-delay:500ms}
+.fab__items>:nth-child(2){animation-delay:570ms}
+.fab__items>:nth-child(3){animation-delay:640ms}
+.fab__toggle{animation-delay:710ms}
+@keyframes fabIn{from{opacity:0;transform:translateX(24px) scale(.85)}}
 
-.soc,.pc__btn{position:relative;width:var(--fab);height:var(--fab);display:grid;place-items:center;border-radius:50%;padding:0;-webkit-tap-highlight-color:transparent;touch-action:manipulation;transition:background-color var(--t-fast) var(--ease-out),border-color var(--t-fast) var(--ease-out),color var(--t-fast),transform 220ms var(--ease-out),box-shadow 220ms var(--ease-out)}
+.soc,.fab__toggle{position:relative;width:var(--fab);height:var(--fab);display:grid;place-items:center;border-radius:50%;padding:0;-webkit-tap-highlight-color:transparent;touch-action:manipulation;transition:background-color var(--t-fast) var(--ease-out),border-color var(--t-fast) var(--ease-out),color var(--t-fast),box-shadow 220ms var(--ease-out),transform 220ms var(--ease-out),opacity 220ms var(--ease-out)}
 .soc{background:var(--c-surface);border:1px solid rgba(202,35,29,.45);color:#fff;box-shadow:0 8px 24px -8px rgba(0,0,0,.7)}
-.soc .ico,.pc__chev{width:22px;height:22px;transition:transform 260ms var(--ease-out)}
-.pc{position:relative}
-.pc__btn{background:var(--c-red);border:1px solid var(--c-red);color:#fff;box-shadow:0 10px 28px -10px rgba(202,35,29,.6)}
-/* Pulso sutil del botón de profesores (se detiene al usarlo) */
-.pc__btn::after{content:"";position:absolute;inset:-1px;border-radius:50%;border:2px solid var(--c-red);opacity:0;pointer-events:none;animation:fabPulse 2.8s var(--ease-out) 1.6s 3}
-.pc.is-used .pc__btn::after,.pc__btn[aria-expanded="true"]::after{animation:none}
+.soc .ico{width:22px;height:22px;transition:transform 260ms var(--ease-out)}
+/* Profesores: foto circular + insignia de WhatsApp */
+.soc--prof{border:2px solid var(--c-red)}
+.soc--prof picture,.soc--prof img{width:100%;height:100%;border-radius:50%;overflow:hidden;object-fit:cover}
+.soc__ini{width:100%;height:100%;border-radius:50%;display:grid;place-items:center;background:var(--c-surface-2);font:700 1.375rem/1 var(--f-display);color:#fff}
+.soc__wa{position:absolute;right:-3px;bottom:-3px;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:var(--c-red);border:2px solid var(--c-bg)}
+.soc__wa svg{width:11px;height:11px;fill:none;stroke:#fff;stroke-width:2.6;stroke-linejoin:round}
+/* Flecha */
+.fab__toggle{background:var(--c-red);border:1px solid var(--c-red);color:#fff;box-shadow:0 10px 28px -10px rgba(202,35,29,.6)}
+.fab__chev{width:22px;height:22px;transition:transform 300ms var(--ease-out)}
+.social.is-collapsed .fab__chev{transform:rotate(180deg)}
+.fab__toggle::after{content:"";position:absolute;inset:-1px;border-radius:50%;border:2px solid var(--c-red);opacity:0;pointer-events:none}
+.social.is-collapsed:not(.is-used) .fab__toggle::after{animation:fabPulse 2.6s var(--ease-out) .4s 3}
 @keyframes fabPulse{0%{opacity:.7;transform:scale(1)}70%,100%{opacity:0;transform:scale(1.55)}}
-.pc__btn[aria-expanded="true"] .pc__chev{transform:rotate(180deg)}
-.pc__btn[aria-expanded="true"]{background:var(--c-red-lo);border-color:var(--c-red-lo)}
-.soc:active,.pc__btn:active{transform:scale(.92)}
+.soc:active,.fab__toggle:active{transform:scale(.92)}
 
-/* Etiqueta al pasar el mouse o con foco de teclado */
-[data-tip]{position:relative}
+/* Esconder / mostrar con la flecha (se recogen hacia la flecha, escalonado) */
+.fab__items>*{transition-property:background-color,border-color,color,box-shadow,transform,opacity,visibility;transition-duration:var(--t-fast),var(--t-fast),var(--t-fast),220ms,300ms,240ms,0s;transition-timing-function:var(--ease-out)}
+.social.is-collapsed .fab__items>*{opacity:0;visibility:hidden;pointer-events:none;transition-delay:0s,0s,0s,0s,0s,0s,300ms}
+.social.is-collapsed .fab__items>:nth-child(1){transform:translateY(calc(3 * (var(--fab) + 12px))) scale(.4)}
+.social.is-collapsed .fab__items>:nth-child(2){transform:translateY(calc(2 * (var(--fab) + 12px))) scale(.4)}
+.social.is-collapsed .fab__items>:nth-child(3){transform:translateY(calc(var(--fab) + 12px)) scale(.4)}
+.social:not(.is-collapsed) .fab__items>:nth-child(3){transition-delay:0s,0s,0s,0s,0ms,0ms,0s}
+.social:not(.is-collapsed) .fab__items>:nth-child(2){transition-delay:0s,0s,0s,0s,50ms,50ms,0s}
+.social:not(.is-collapsed) .fab__items>:nth-child(1){transition-delay:0s,0s,0s,0s,100ms,100ms,0s}
+
+/* Etiquetas: hover/foco en computador; en celular se muestran un momento al desplegar */
 [data-tip]::before{content:attr(data-tip);position:absolute;right:calc(100% + 12px);top:50%;padding:.4rem .7rem;border-radius:var(--r-sm);background:var(--c-surface);border:1px solid var(--c-line-2);color:var(--c-text);font-size:var(--fs-xs);font-weight:700;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;pointer-events:none;opacity:0;transform:translate(6px,-50%);transition:opacity 180ms var(--ease-out),transform 220ms var(--ease-out)}
+[data-tip]:focus-visible::before,.social.show-tips .soc--prof::before{opacity:1;transform:translate(0,-50%)}
+.social.is-collapsed [data-tip]::before{opacity:0!important}
 @media (hover:hover){
   .soc:hover{background:var(--c-red);border-color:var(--c-red);transform:translateY(-3px);box-shadow:0 14px 28px -10px rgba(202,35,29,.6)}
   .soc:hover .ico{transform:scale(1.1)}
-  .pc__btn:hover{background:var(--c-red-hi);border-color:var(--c-red-hi);transform:translateY(-3px);box-shadow:0 16px 32px -10px rgba(202,35,29,.75)}
+  .soc--prof:hover{border-color:var(--c-red-hi)}
+  .fab__toggle:hover{background:var(--c-red-hi);border-color:var(--c-red-hi);transform:translateY(-3px);box-shadow:0 16px 32px -10px rgba(202,35,29,.75)}
   [data-tip]:hover::before{opacity:1;transform:translate(0,-50%)}
 }
-[data-tip]:focus-visible::before,.pc:focus-within:not(.is-open)::before{opacity:1;transform:translate(0,-50%)}
-.pc.is-open::before{opacity:0!important}
-
-/* Panel de profesores */
-.pc__menu{position:absolute;right:calc(100% + 12px);bottom:0;width:min(280px,calc(100vw - var(--fab) - 56px));padding:var(--s-2);background:var(--c-surface);border:1px solid var(--c-line-2);border-radius:var(--r-md);box-shadow:0 18px 44px -12px rgba(0,0,0,.75);opacity:0;transform:translateX(12px) scale(.96);transform-origin:bottom right;transition:opacity 220ms var(--ease-out),transform 260ms var(--ease-out)}
-.pc__menu.is-open{opacity:1;transform:none}
-.pc__menu li{opacity:0;transform:translateX(10px);transition:opacity 200ms var(--ease-out),transform 260ms var(--ease-out)}
-.pc__menu.is-open li{opacity:1;transform:none}
-.pc__menu.is-open li:nth-child(1){transition-delay:60ms}
-.pc__menu.is-open li:nth-child(2){transition-delay:120ms}
-.pc__menu li+li{border-top:1px solid var(--c-line);margin-top:4px;padding-top:4px}
-.pc__item{display:flex;align-items:center;gap:var(--s-3);min-height:56px;padding:.5rem .75rem;border-radius:var(--r-sm);text-decoration:none;transition:background-color var(--t-fast),transform 200ms var(--ease-out)}
-.pc__item .ico{color:var(--c-red-ink);transition:transform 220ms var(--ease-out)}
-.pc__item span{display:grid;line-height:1.3}
-.pc__item b{color:#fff}
-.pc__item small{font-size:var(--fs-sm);color:var(--c-text-2)}
-.pc__item:focus-visible{background:var(--c-surface-2)}
-@media (hover:hover){
-  .pc__item:hover{background:var(--c-surface-2);transform:translateX(-2px)}
-  .pc__item:hover .ico{transform:scale(1.12)}
-}
-.pc__item:active{transform:scale(.98)}
 
 /* Celular y tablet: por encima de la barra inferior de botones */
-@media (max-width:1023px){.social{--fab:48px;bottom:calc(84px + env(safe-area-inset-bottom));gap:10px}}
-@media (prefers-reduced-motion:reduce){.social>*{animation:none}.pc__btn::after{display:none}}
+@media (max-width:1023px){.social{--fab:48px;bottom:calc(84px + env(safe-area-inset-bottom));gap:10px}.fab__items{gap:10px}
+  .social.is-collapsed .fab__items>:nth-child(1){transform:translateY(calc(3 * (var(--fab) + 10px))) scale(.4)}
+  .social.is-collapsed .fab__items>:nth-child(2){transform:translateY(calc(2 * (var(--fab) + 10px))) scale(.4)}
+  .social.is-collapsed .fab__items>:nth-child(3){transform:translateY(calc(var(--fab) + 10px)) scale(.4)}}
+@media (prefers-reduced-motion:reduce){.fab__items>*,.fab__toggle{animation:none}.fab__toggle::after{display:none}}
