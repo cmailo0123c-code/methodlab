@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Method Lab | Entrenamiento personalizado y nutrición en Providencia</title>
+<meta name="description" content="Gimnasio boutique en Providencia: entrenamiento de fuerza 100 % personalizado, evaluaciones con datos y nutrición deportiva opcional. Máximo 2–3 personas por coach.">
+<!-- DEMO: no indexar para no competir con methodlab.cl. Quitar al publicar la versión definitiva. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://methodlab.cl/">
+<meta name="theme-color" content="#0a0a0a">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta property="og:site_name" content="Method Lab">
+<meta property="og:title" content="Method Lab · Entrena con método. Progresa con ciencia.">
+<meta property="og:description" content="Entrenamiento personalizado, mediciones profesionales y nutrición deportiva en Providencia, Santiago.">
+<meta property="og:image" content="assets/img/hero-1440.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" type="image/avif" imagesrcset="assets/img/hero-640.avif 640w, assets/img/hero-960.avif 960w, assets/img/hero-1440.avif 1440w, assets/img/hero-1920.avif 1920w" imagesizes="100vw" fetchpriority="high">
+<link rel="stylesheet" href="styles.css">
+<script>
+document.documentElement.classList.add('js');
+/* Respaldo de imágenes: si aún no se ejecutó scripts/descargar-media.mjs,
+   usa el original publicado en methodlab.cl para que la demo nunca muestre imágenes rotas. */
+window.mlImg=function(img){
+  if(img.dataset.fb==='2')return;
+  if(img.dataset.fb==='1'){img.dataset.fb='2';img.closest('.media')?.classList.add('is-missing');img.remove();return;}
+  img.dataset.fb='1';
+  var p=img.parentNode; if(p&&p.tagName==='PICTURE'){[].slice.call(p.querySelectorAll('source')).forEach(function(s){s.remove()});}
+  var c=img.dataset.cdn; img.srcset=c+'&width=640 640w, '+c+'&width=960 960w, '+c+'&width=1440 1440w, '+c+'&width=1920 1920w'; img.src=c+'&width=960';
+};
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ExerciseGym",
+  "name": "Method Lab",
+  "legalName": "Method Lab SpA",
+  "url": "https://methodlab.cl/",
+  "telephone": "+56961417901",
+  "email": "methodlabgym@gmail.com",
+  "address": {"@type": "PostalAddress","streetAddress": "Av. Francisco Bilbao 2970","addressLocality": "Providencia","addressRegion": "Región Metropolitana","addressCountry": "CL"},
+  "hasMap": "https://maps.app.goo.gl/c57bSRTB8xeeejiK8",
+  "sameAs": ["https://www.instagram.com/methodlabgym/"]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<!-- ============ HEADER ============ -->
+<header class="hdr" id="hdr">
+  <div class="demo">
+    <div class="wrap demo__in">
+      <p><span class="demo__dot" aria-hidden="true"></span><b>Versión demo</b><span class="demo__hide"> · compras en línea desactivadas</span></p>
+      <button class="demo__btn" type="button" id="reviewBtn" aria-pressed="false">
+        <span class="demo__lbl">Puntos por confirmar</span> <span class="demo__n" id="reviewCount">0</span>
+      </button>
+    </div>
+  </div>
+  <div class="wrap hdr__in">
+    <a class="hdr__logo" href="#top" aria-label="Method Lab, ir al inicio">
+      <picture>
+        <source srcset="assets/logo-methodlab.webp" type="image/webp">
+        <img src="assets/logo-methodlab.png" alt="Method Lab — Fitness &amp; Strength Club" width="300" height="161">
+      </picture>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <ul class="nav__list">
+        <li><a href="#metodo">Método</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#planes">Planes</a></li>
+        <li><a href="#porque">Por qué</a></li>
+        <li><a href="#faq">Preguntas</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="hdr__act">
+      <a class="btn btn--red btn--sm hdr__cta" href="#contacto">Evaluación gratis</a>
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="mnav" aria-label="Abrir menú">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mnav" id="mnav" hidden>
+  <nav aria-label="Menú móvil">
+    <ul>
+      <li><a href="#metodo">Método</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#planes">Planes</a></li>
+      <li><a href="#porque">Por qué Method Lab</a></li>
+      <li><a href="#faq">Preguntas frecuentes</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+  <div class="mnav__foot">
+    <a class="btn btn--red btn--block" href="#contacto">Agendar evaluación gratuita</a>
+    <a class="btn btn--ghost btn--block" href="#planes">Ver planes</a>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ============ 1. HERO ============ -->
+<section class="hero" id="top" aria-labelledby="hero-t">
+  <div class="hero__media media">
+    <picture><source type="image/avif" srcset="assets/img/hero-640.avif 640w, assets/img/hero-960.avif 960w, assets/img/hero-1440.avif 1440w, assets/img/hero-1920.avif 1920w" sizes="100vw"><source type="image/webp" srcset="assets/img/hero-640.webp 640w, assets/img/hero-960.webp 960w, assets/img/hero-1440.webp 1440w, assets/img/hero-1920.webp 1920w" sizes="100vw"><img src="assets/img/hero-960.jpg" srcset="assets/img/hero-640.jpg 640w, assets/img/hero-960.jpg 960w, assets/img/hero-1440.jpg 1440w, assets/img/hero-1920.jpg 1920w" sizes="100vw" alt="Entrenamiento de fuerza en Method Lab" width="1440" height="960" loading="eager" decoding="async" fetchpriority="high" data-cdn="https://methodlab.cl/cdn/shop/files/969AC74D-E83E-4369-8819-C2848CB5AFB6.png?v=1" onerror="mlImg(this)"></picture>
+  </div>
+  <div class="wrap hero__in">
+    <p class="eyebrow hero__eye" data-anim>Sin evidencia no hay ciencia</p>
+    <h1 class="hero__t" id="hero-t">
+      <span class="line" data-anim>Entrena con método.</span>
+      <span class="line" data-anim>Progresa con <em>ciencia.</em></span>
+    </h1>
+    <p class="hero__sub" data-anim>Entrenamiento personalizado, mediciones profesionales y acompañamiento experto para alcanzar tus objetivos, en Providencia.</p>
+    <div class="hero__cta" data-anim>
+      <a class="btn btn--red" href="#contacto">Agendar evaluación gratuita</a>
+      <a class="btn btn--ghost" href="#planes">Conocer los planes</a>
+    </div>
+  </div>
+  <div class="hero__facts">
+    <ul class="wrap" data-anim>
+      <li data-review="Promoción publicada en el sitio actual. Confirmar vigencia."><strong>Matrícula gratis</strong></li>
+      <li><strong>Planes 100 %</strong> personalizados</li>
+      <li data-review="Promoción publicada en el sitio actual. Confirmar vigencia."><strong>Hasta 3 cuotas</strong> sin interés</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 2. BENEFICIOS ============ -->
+<section class="sec" aria-labelledby="ben-t">
+  <div class="wrap">
+    <h2 class="vh" id="ben-t">Beneficios</h2>
+    <ul class="ben" data-stagger>
+      <li class="ben__i" data-anim>
+        <svg class="ico ico--lg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+        <h3>100 % personalizado</h3>
+        <p>Un plan de fuerza hecho a tu medida: cada sesión tiene un objetivo y un propósito.</p>
+      </li>
+      <li class="ben__i" data-anim>
+        <svg class="ico ico--lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-6"/><path d="M15 8h5v5"/></svg>
+        <h3>Progreso medible</h3>
+        <p>Todos los planes incluyen mediciones periódicas de fuerza. No dejamos nada al azar.</p>
+      </li>
+      <li class="ben__i" data-anim>
+        <svg class="ico ico--lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4-2-7-5.5-7-10a7 7 0 0 1 7-7 7 7 0 0 1 7 7c0 4.5-3 8-7 10Z"/><path d="M12 4v17"/><path d="m12 10 3-3"/><path d="m12 14-3-3"/></svg>
+        <h3>Nutrición deportiva</h3>
+        <p>Opcional en cualquier plan: consultas, composición corporal y controles coordinados con tu coach.</p>
+      </li>
+      <li class="ben__i" data-anim>
+        <svg class="ico ico--lg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17.5" cy="9" r="2.5"/><path d="M16 14.2a5 5 0 0 1 5.5 4.8"/></svg>
+        <h3>Entorno semi-privado</h3>
+        <p>Aforos reducidos: máximo 2–3 personas por coach, para un coaching realmente cercano.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 3. MÉTODO ============ -->
+<section class="sec sec--line" id="metodo" aria-labelledby="met-t">
+  <div class="wrap met">
+    <div class="met__txt">
+      <p class="eyebrow" data-anim>Nuestro método</p>
+      <h2 class="h2" id="met-t" data-anim>Sin evidencia<br>no hay ciencia.</h2>
+      <p class="lead" data-anim>Convertimos el entrenamiento en un proceso medible. Unimos fuerza y ciencia para generar cambios reales: cada carga tiene una razón.</p>
+      <ol class="met__cycle" data-stagger>
+        <li data-anim><span class="num">01</span><div><h3>Evaluamos</h3><p>Fuerza, control motor, movilidad y composición corporal, con instrumentos profesionales.</p></div></li>
+        <li data-anim><span class="num">02</span><div><h3>Programamos</h3><p>Sesiones con objetivos claros, técnica depurada y dosificación de cargas.</p></div></li>
+        <li data-anim><span class="num">03</span><div><h3>Medimos</h3><p>Mediciones periódicas de fuerza en todos los planes.</p></div></li>
+        <li data-anim><span class="num">04</span><div><h3>Ajustamos</h3><p>El programa se ajusta sesión a sesión para progresar semana a semana.</p></div></li>
+      </ol>
+    </div>
+    <figure class="met__img media reveal-img" data-anim>
+      <picture><source type="image/avif" srcset="assets/img/resultados-640.avif 640w, assets/img/resultados-960.avif 960w, assets/img/resultados-1440.avif 1440w, assets/img/resultados-1920.avif 1920w" sizes="(min-width: 960px) 45vw, 100vw"><source type="image/webp" srcset="assets/img/resultados-640.webp 640w, assets/img/resultados-960.webp 960w, assets/img/resultados-1440.webp 1440w, assets/img/resultados-1920.webp 1920w" sizes="(min-width: 960px) 45vw, 100vw"><img src="assets/img/resultados-960.jpg" srcset="assets/img/resultados-640.jpg 640w, assets/img/resultados-960.jpg 960w, assets/img/resultados-1440.jpg 1440w, assets/img/resultados-1920.jpg 1920w" sizes="(min-width: 960px) 45vw, 100vw" alt="Evaluación y seguimiento de un alumno en Method Lab" width="1440" height="960" loading="lazy" decoding="async" data-cdn="https://methodlab.cl/cdn/shop/files/FC07D2CD-1DAD-43F9-BD7D-C104E3D1C16A.jpg?v=1" onerror="mlImg(this)"></picture>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 4. SERVICIOS (pestañas) ============ -->
+<section class="sec sec--alt" id="servicios" aria-labelledby="ser-t">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="eyebrow" data-anim>Servicios</p>
+      <h2 class="h2" id="ser-t" data-anim>Entrenamiento, nutrición y ciencia de datos.</h2>
+    </div>
+
+    <div class="tabs" data-anim>
+      <div class="tabs__list" role="tablist" aria-label="Servicios de Method Lab">
+        <button role="tab" id="t-ent" aria-controls="p-ent" aria-selected="true">Entrenamiento</button>
+        <button role="tab" id="t-nut" aria-controls="p-nut" aria-selected="false" tabindex="-1">Nutrición</button>
+        <button role="tab" id="t-dat" aria-controls="p-dat" aria-selected="false" tabindex="-1">Ciencia de datos</button>
+        <button role="tab" id="t-com" aria-controls="p-com" aria-selected="false" tabindex="-1">Comunidad</button>
+        <span class="tabs__ink" aria-hidden="true"></span>
+      </div>
+
+      <div class="tabs__panel" role="tabpanel" id="p-ent" aria-labelledby="t-ent" tabindex="0">
+        <figure class="tabs__img media"><picture><source type="image/avif" srcset="assets/img/entrenamiento-640.avif 640w, assets/img/entrenamiento-960.avif 960w, assets/img/entrenamiento-1440.avif 1440w, assets/img/entrenamiento-1920.avif 1920w" sizes="(min-width: 960px) 50vw, 100vw"><source type="image/webp" srcset="assets/img/entrenamiento-640.webp 640w, assets/img/entrenamiento-960.webp 960w, assets/img/entrenamiento-1440.webp 1440w, assets/img/entrenamiento-1920.webp 1920w" sizes="(min-width: 960px) 50vw, 100vw"><img src="assets/img/entrenamiento-960.jpg" srcset="assets/img/entrenamiento-640.jpg 640w, assets/img/entrenamiento-960.jpg 960w, assets/img/entrenamiento-1440.jpg 1440w, assets/img/entrenamiento-1920.jpg 1920w" sizes="(min-width: 960px) 50vw, 100vw" alt="Coach supervisando la técnica de un alumno en Method Lab" width="1440" height="960" loading="lazy" decoding="async" data-cdn="https://methodlab.cl/cdn/shop/files/253135E8-81C7-4795-A8B3-30DAE5DB9956_1_105_c.jpg?v=1" onerror="mlImg(this)"></picture></figure>
+        <div class="tabs__txt">
+          <span class="tag">Incluido en todos los planes</span>
+          <h3 class="h3">Programas 100 % personalizados</h3>
+          <p>Plan de fuerza hecho a tu medida: cada sesión tiene un objetivo y un propósito, sin sobrecargas ni pausas innecesarias.</p>
+          <ul class="chk">
+            <li>Sesiones con objetivos claros y técnica depurada</li>
+            <li>Dosificación de cargas para progresar semana a semana</li>
+            <li>Entorno privado y cuidado, con aforos reducidos</li>
+            <li>Mediciones periódicas de fuerza</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tabs__panel" role="tabpanel" id="p-nut" aria-labelledby="t-nut" tabindex="0" hidden>
+        <figure class="tabs__img media"><picture><source type="image/avif" srcset="assets/img/nutricion-640.avif 640w, assets/img/nutricion-960.avif 960w, assets/img/nutricion-1440.avif 1440w, assets/img/nutricion-1920.avif 1920w" sizes="(min-width: 960px) 50vw, 100vw"><source type="image/webp" srcset="assets/img/nutricion-640.webp 640w, assets/img/nutricion-960.webp 960w, assets/img/nutricion-1440.webp 1440w, assets/img/nutricion-1920.webp 1920w" sizes="(min-width: 960px) 50vw, 100vw"><img src="assets/img/nutricion-960.jpg" srcset="assets/img/nutricion-640.jpg 640w, assets/img/nutricion-960.jpg 960w, assets/img/nutricion-1440.jpg 1440w, assets/img/nutricion-1920.jpg 1920w" sizes="(min-width: 960px) 50vw, 100vw" alt="Consulta de nutrición deportiva en Method Lab" width="1440" height="960" loading="lazy" decoding="async" data-cdn="https://methodlab.cl/cdn/shop/files/IMG_0531.jpg?v=1" onerror="mlImg(this)"></picture></figure>
+        <div class="tabs__txt">
+          <span class="tag tag--red">Opcional · “Con nutricionista”</span>
+          <h3 class="h3">Planes alimenticios inteligentes</h3>
+          <p>Nuestros nutricionistas deportivos coordinan directamente con tu coach para que entrenamiento y nutrición avancen sincronizados.</p>
+          <ul class="chk">
+            <li>Consultas presenciales con nutricionistas profesionales</li>
+            <li>Evaluaciones ISAK periódicas de composición corporal</li>
+            <li>Control mensual y pautas nutricionales personalizadas</li>
+            <li>Recomendaciones para comprar mejores alimentos, con seguimiento para convertir ajustes en hábitos</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tabs__panel" role="tabpanel" id="p-dat" aria-labelledby="t-dat" tabindex="0" hidden>
+        <figure class="tabs__img media"><picture><source type="image/avif" srcset="assets/img/ciencia-datos-640.avif 640w, assets/img/ciencia-datos-960.avif 960w, assets/img/ciencia-datos-1440.avif 1440w, assets/img/ciencia-datos-1920.avif 1920w" sizes="(min-width: 960px) 50vw, 100vw"><source type="image/webp" srcset="assets/img/ciencia-datos-640.webp 640w, assets/img/ciencia-datos-960.webp 960w, assets/img/ciencia-datos-1440.webp 1440w, assets/img/ciencia-datos-1920.webp 1920w" sizes="(min-width: 960px) 50vw, 100vw"><img src="assets/img/ciencia-datos-960.jpg" srcset="assets/img/ciencia-datos-640.jpg 640w, assets/img/ciencia-datos-960.jpg 960w, assets/img/ciencia-datos-1440.jpg 1440w, assets/img/ciencia-datos-1920.jpg 1920w" sizes="(min-width: 960px) 50vw, 100vw" alt="Evaluación de fuerza con instrumental profesional en Method Lab" width="1440" height="960" loading="lazy" decoding="async" data-cdn="https://methodlab.cl/cdn/shop/files/FC07D2CD-1DAD-43F9-BD7D-C104E3D1C16A_1_105_c.jpg?v=1" onerror="mlImg(this)"></picture></figure>
+        <div class="tabs__txt">
+          <span class="tag">Base de todos los planes</span>
+          <h3 class="h3">Unimos fuerza y ciencia</h3>
+          <p>Usamos instrumentos de evaluación profesional para analizar fuerza, control motor, movilidad y composición corporal. Con datos objetivos diseñamos planes precisos, seguros y alineados a tus objetivos.</p>
+          <ul class="chk">
+            <li>Dinamómetros digitales</li>
+            <li>Plataformas de fuerza</li>
+            <li>Analizadores de composición corporal</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tabs__panel" role="tabpanel" id="p-com" aria-labelledby="t-com" tabindex="0" hidden>
+        <figure class="tabs__img media"><picture><source type="image/avif" srcset="assets/img/comunidad-640.avif 640w, assets/img/comunidad-960.avif 960w, assets/img/comunidad-1440.avif 1440w, assets/img/comunidad-1920.avif 1920w" sizes="(min-width: 960px) 50vw, 100vw"><source type="image/webp" srcset="assets/img/comunidad-640.webp 640w, assets/img/comunidad-960.webp 960w, assets/img/comunidad-1440.webp 1440w, assets/img/comunidad-1920.webp 1920w" sizes="(min-width: 960px) 50vw, 100vw"><img src="assets/img/comunidad-960.jpg" srcset="assets/img/comunidad-640.jpg 640w, assets/img/comunidad-960.jpg 960w, assets/img/comunidad-1440.jpg 1440w, assets/img/comunidad-1920.jpg 1920w" sizes="(min-width: 960px) 50vw, 100vw" alt="Comunidad de alumnos de Method Lab" width="1440" height="960" loading="lazy" decoding="async" data-cdn="https://methodlab.cl/cdn/shop/files/fec90185-27e8-4796-83c6-6f019fef1cac.jpg?v=1" onerror="mlImg(this)"></picture></figure>
+        <div class="tabs__txt">
+          <span class="tag">Apoyo y motivación constante</span>
+          <h3 class="h3">Comunidad Method Lab</h3>
+          <p>Acompañamos con contención, guía y conocimiento, respetando la historia, los miedos y las metas de cada persona.</p>
+          <ul class="chk">
+            <li>Eventos fuera del entrenamiento, como asados y competencias de alumnos</li>
+            <li data-review="El sitio menciona planes de 2 a 3 personas, pero solo existe el plan para 2 (la colección de 3 personas está vacía).">Planes para entrenar acompañado y motivarse juntos</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. CÓMO EMPEZAR ============ -->
+<section class="sec" id="empezar" aria-labelledby="emp-t">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="eyebrow" data-anim>Cómo empezar</p>
+      <h2 class="h2" id="emp-t" data-anim>Cuatro pasos. Sin complicaciones.</h2>
+    </div>
+    <ol class="steps" data-stagger>
+      <li class="step" data-anim><span class="step__n">1</span><h3>Agenda tu evaluación gratuita</h3><p>Sin costo ni compromiso. Revisamos tu punto de partida y tus objetivos.</p></li>
+      <li class="step" data-anim><span class="step__n">2</span><h3>Diseñamos tu plan</h3><p>Personalizado a tu tiempo, nivel y metas, si entrenas solo o con alguien.</p></li>
+      <li class="step" data-anim><span class="step__n">3</span><h3>Organiza tus horarios</h3><p>Sin día ni hora fija: agendas con anticipación según tu disponibilidad.</p></li>
+      <li class="step" data-anim><span class="step__n">4</span><h3>Entrena con datos</h3><p>Ajustamos el programa sesión a sesión y medimos tus resultados.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 6. PLANES ============ -->
+<section class="sec sec--alt" id="planes" aria-labelledby="pla-t">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="eyebrow" data-anim>Planes</p>
+      <h2 class="h2" id="pla-t" data-anim>Arma tu plan.</h2>
+      <p class="lead" data-anim>Elige con quién entrenas, cuántos días y por cuánto tiempo. Los precios corresponden a los publicados en methodlab.cl.</p>
+    </div>
+
+    <div class="cfg" id="cfg" data-anim>
+      <form class="cfg__opts" id="cfgForm" onsubmit="return false">
+        <fieldset class="seg-f">
+          <legend>Modalidad</legend>
+          <div class="seg seg--plan">
+            <label>
+              <input type="radio" name="plan" value="individual" checked>
+              <span>
+                <span class="seg__img media"><picture><source type="image/avif" srcset="assets/img/plan-individual-640.avif 640w, assets/img/plan-individual-960.avif 960w, assets/img/plan-individual-1440.avif 1440w, assets/img/plan-individual-1920.avif 1920w" sizes="(min-width: 960px) 20vw, 45vw"><source type="image/webp" srcset="assets/img/plan-individual-640.webp 640w, assets/img/plan-individual-960.webp 960w, assets/img/plan-individual-1440.webp 1440w, assets/img/plan-individual-1920.webp 1920w" sizes="(min-width: 960px) 20vw, 45vw"><img src="assets/img/plan-individual-960.jpg" srcset="assets/img/plan-individual-640.jpg 640w, assets/img/plan-individual-960.jpg 960w, assets/img/plan-individual-1440.jpg 1440w, assets/img/plan-individual-1920.jpg 1920w" sizes="(min-width: 960px) 20vw, 45vw" alt="" width="1440" height="960" loading="lazy" decoding="async" data-cdn="https://methodlab.cl/cdn/shop/files/DSC02559.jpg?v=1" onerror="mlImg(this)"></picture></span>
+                <b>Individual</b><small>Desde $60.000 al mes</small>
+              </span>
+            </label>
+            <label>
+              <input type="radio" name="plan" value="duo">
+              <span>
+                <span class="seg__img media"><picture><source type="image/avif" srcset="assets/img/plan-dos-personas-640.avif 640w, assets/img/plan-dos-personas-960.avif 960w, assets/img/plan-dos-personas-1440.avif 1440w, assets/img/plan-dos-personas-1920.avif 1920w" sizes="(min-width: 960px) 20vw, 45vw"><source type="image/webp" srcset="assets/img/plan-dos-personas-640.webp 640w, assets/img/plan-dos-personas-960.webp 960w, assets/img/plan-dos-personas-1440.webp 1440w, assets/img/plan-dos-personas-1920.webp 1920w" sizes="(min-width: 960px) 20vw, 45vw"><img src="assets/img/plan-dos-personas-960.jpg" srcset="assets/img/plan-dos-personas-640.jpg 640w, assets/img/plan-dos-personas-960.jpg 960w, assets/img/plan-dos-personas-1440.jpg 1440w, assets/img/plan-dos-personas-1920.jpg 1920w" sizes="(min-width: 960px) 20vw, 45vw" alt="" width="1440" height="960" loading="lazy" decoding="async" data-cdn="https://methodlab.cl/cdn/shop/files/FE983604-97DC-4080-A6BF-4F7F37512CF7.png?v=1" onerror="mlImg(this)"></picture></span>
+                <b>2 personas</b><small>Desde $112.000 al mes</small>
+              </span>
+            </label>
+          </div>
+        </fieldset>
+        <fieldset class="seg-f">
+          <legend>Días por semana</legend>
+          <div class="seg seg--4">
+            <label><input type="radio" name="dias" value="1" checked><span>1 día</span></label>
+            <label><input type="radio" name="dias" value="2"><span>2 días</span></label>
+            <label><input type="radio" name="dias" value="3"><span>3 días</span></label>
+            <label><input type="radio" name="dias" value="4"><span>4 días</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="seg-f">
+          <legend>Duración</legend>
+          <div class="seg seg--4 seg--dur">
+            <label><input type="radio" name="dur" value="Mensual" checked><span>Mensual</span></label>
+            <label><input type="radio" name="dur" value="Trimestral"><span>Trimestral</span></label>
+            <label><input type="radio" name="dur" value="Semestral"><span>Semestral</span></label>
+            <label><input type="radio" name="dur" value="Anual"><span>Anual</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="seg-f">
+          <legend>Nutricionista <span class="muted">(mediciones + controles)</span></legend>
+          <div class="seg seg--2">
+            <label><input type="radio" name="nut" value="Sin Nutricionista" checked><span>Sin nutricionista</span></label>
+            <label><input type="radio" name="nut" value="Con Nutricionista"><span>Con nutricionista</span></label>
+          </div>
+        </fieldset>
+      </form>
+
+      <aside class="cfg__sum" aria-labelledby="sumName">
+        <p class="cfg__name" id="sumName">Plan Individual</p>
+        <p class="cfg__spec" id="sumSpec">1 día por semana · Mensual · Sin nutricionista</p>
+        <div class="cfg__price" aria-live="polite" aria-atomic="true">
+          <span class="cfg__amt" id="sumPrice">$60.000</span>
+          <span class="cfg__per" id="sumPer">pago mensual</span>
+        </div>
+        <p class="cfg__eq" id="sumEq" hidden></p>
+        <ul class="chk chk--sm" id="sumInc"></ul>
+        <button class="btn btn--red btn--block" type="button" id="buyBtn">Contratar plan</button>
+        <button class="cfg__more" type="button" id="detailBtn">Ver detalle del plan</button>
+        <p class="cfg__fine"><span data-review="Promoción publicada en el sitio actual. Confirmar vigencia.">Matrícula gratis · hasta 3 cuotas sin interés.</span> Tarjetas: Visa, Mastercard, American Express y Diners Club.</p>
+      </aside>
+    </div>
+
+    <!-- Comparación de modalidades para la selección actual -->
+    <div class="cmp" data-anim>
+      <table>
+        <caption>Comparación para tu selección: <span id="cmpSel">1 día · Mensual · Sin nutricionista</span></caption>
+        <thead><tr><th scope="col"><span class="vh">Característica</span></th><th scope="col">Individual</th><th scope="col">2 personas</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Precio</th><td id="cmpA">$60.000</td><td id="cmpB">$112.000</td></tr>
+          <tr><th scope="row">Evaluación inicial</th><td>Fuerza, movilidad y control motor</td><td>Para cada persona</td></tr>
+          <tr><th scope="row">Coach</th><td>Semi-privado, máx. 2–3 personas</td><td>Mismo horario y coach para ambos</td></tr>
+          <tr><th scope="row">Mediciones</th><td>Periódicas de fuerza</td><td>Individuales para cada persona</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="help" data-anim>¿No sabes cuál elegir? <a href="https://wa.me/56961417901" target="_blank" rel="noopener">Escríbenos por WhatsApp</a> o empieza por la <a href="#contacto">evaluación gratuita</a>.</p>
+  </div>
+</section>
+
+<!-- ============ 7. POR QUÉ ============ -->
+<section class="sec" id="porque" aria-labelledby="why-t">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="eyebrow" data-anim>¿Por qué elegir Method Lab?</p>
+      <h2 class="h2" id="why-t" data-anim>Un espacio boutique, no un gimnasio masivo.</h2>
+    </div>
+    <div class="why" data-stagger>
+      <article class="why__c why__c--lg" data-anim>
+        <figure class="media"><picture><source type="image/avif" srcset="assets/img/fuerza-ciencia-640.avif 640w, assets/img/fuerza-ciencia-960.avif 960w, assets/img/fuerza-ciencia-1440.avif 1440w, assets/img/fuerza-ciencia-1920.avif 1920w" sizes="(min-width: 960px) 60vw, 100vw"><source type="image/webp" srcset="assets/img/fuerza-ciencia-640.webp 640w, assets/img/fuerza-ciencia-960.webp 960w, assets/img/fuerza-ciencia-1440.webp 1440w, assets/img/fuerza-ciencia-1920.webp 1920w" sizes="(min-width: 960px) 60vw, 100vw"><img src="assets/img/fuerza-ciencia-960.jpg" srcset="assets/img/fuerza-ciencia-640.jpg 640w, assets/img/fuerza-ciencia-960.jpg 960w, assets/img/fuerza-ciencia-1440.jpg 1440w, assets/img/fuerza-ciencia-1920.jpg 1920w" sizes="(min-width: 960px) 60vw, 100vw" alt="Alumno entrenando fuerza en Method Lab" width="1440" height="960" loading="lazy" decoding="async" data-cdn="https://methodlab.cl/cdn/shop/files/16E110FD-177C-42DE-9BFD-8E6EF155D771.jpg?v=1" onerror="mlImg(this)"></picture></figure>
+        <div class="why__t"><span class="num">01</span><h3>Aumenta tu fuerza con ciencia</h3><p>Los datos de tus evaluaciones guían el ajuste de cargas, la prevención de lesiones y la optimización de cada sesión.</p></div>
+      </article>
+      <article class="why__c" data-anim>
+        <figure class="media"><picture><source type="image/avif" srcset="assets/img/entrenamiento-nutricion-640.avif 640w, assets/img/entrenamiento-nutricion-960.avif 960w, assets/img/entrenamiento-nutricion-1440.avif 1440w, assets/img/entrenamiento-nutricion-1920.avif 1920w" sizes="(min-width: 960px) 40vw, 100vw"><source type="image/webp" srcset="assets/img/entrenamiento-nutricion-640.webp 640w, assets/img/entrenamiento-nutricion-960.webp 960w, assets/img/entrenamiento-nutricion-1440.webp 1440w, assets/img/entrenamiento-nutricion-1920.webp 1920w" sizes="(min-width: 960px) 40vw, 100vw"><img src="assets/img/entrenamiento-nutricion-960.jpg" srcset="assets/img/entrenamiento-nutricion-640.jpg 640w, assets/img/entrenamiento-nutricion-960.jpg 960w, assets/img/entrenamiento-nutricion-1440.jpg 1440w, assets/img/entrenamiento-nutricion-1920.jpg 1920w" sizes="(min-width: 960px) 40vw, 100vw" alt="Entrenamiento y nutrición coordinados en Method Lab" width="1440" height="960" loading="lazy" decoding="async" data-cdn="https://methodlab.cl/cdn/shop/files/89CE79A5-D50B-42F1-9094-96A183631990.jpg?v=1" onerror="mlImg(this)"></picture></figure>
+        <div class="why__t"><span class="num">02</span><h3>Entrenamiento y nutrición, sincronizados</h3><p>Para rendimiento, recomposición corporal, pérdida de grasa, ganancia muscular o salud general.</p></div>
+      </article>
+      <article class="why__c" data-anim>
+        <figure class="media"><picture><source type="image/avif" srcset="assets/img/ambiente-premium-640.avif 640w, assets/img/ambiente-premium-960.avif 960w, assets/img/ambiente-premium-1440.avif 1440w, assets/img/ambiente-premium-1920.avif 1920w" sizes="(min-width: 960px) 33vw, 100vw"><source type="image/webp" srcset="assets/img/ambiente-premium-640.webp 640w, assets/img/ambiente-premium-960.webp 960w, assets/img/ambiente-premium-1440.webp 1440w, assets/img/ambiente-premium-1920.webp 1920w" sizes="(min-width: 960px) 33vw, 100vw"><img src="assets/img/ambiente-premium-960.jpg" srcset="assets/img/ambiente-premium-640.jpg 640w, assets/img/ambiente-premium-960.jpg 960w, assets/img/ambiente-premium-1440.jpg 1440w, assets/img/ambiente-premium-1920.jpg 1920w" sizes="(min-width: 960px) 33vw, 100vw" alt="Espacio de entrenamiento de Method Lab" width="1440" height="960" loading="lazy" decoding="async" data-cdn="https://methodlab.cl/cdn/shop/files/9934C035-FA24-4DC3-AF19-5C3D1032841E.jpg?v=1" onerror="mlImg(this)"></picture></figure>
+        <div class="why__t"><span class="num">03</span><h3>Ambiente premium</h3><p>Sesiones semi-privadas con máximo 2–3 personas por coach.</p></div>
+      </article>
+      <article class="why__c" data-anim>
+        <figure class="media"><picture><source type="image/avif" srcset="assets/img/horarios-flexibles-640.avif 640w, assets/img/horarios-flexibles-960.avif 960w, assets/img/horarios-flexibles-1440.avif 1440w, assets/img/horarios-flexibles-1920.avif 1920w" sizes="(min-width: 960px) 33vw, 100vw"><source type="image/webp" srcset="assets/img/horarios-flexibles-640.webp 640w, assets/img/horarios-flexibles-960.webp 960w, assets/img/horarios-flexibles-1440.webp 1440w, assets/img/horarios-flexibles-1920.webp 1920w" sizes="(min-width: 960px) 33vw, 100vw"><img src="assets/img/horarios-flexibles-960.jpg" srcset="assets/img/horarios-flexibles-640.jpg 640w, assets/img/horarios-flexibles-960.jpg 960w, assets/img/horarios-flexibles-1440.jpg 1440w, assets/img/horarios-flexibles-1920.jpg 1920w" sizes="(min-width: 960px) 33vw, 100vw" alt="Alumna entrenando en Method Lab" width="1440" height="960" loading="lazy" decoding="async" data-cdn="https://methodlab.cl/cdn/shop/files/76297A7B-631C-476D-81E1-90026F6CD0DD_4_5005_c.jpg?v=1" onerror="mlImg(this)"></picture></figure>
+        <div class="why__t"><span class="num">04</span><h3>Horarios flexibles</h3><p>Sin día ni hora fija: reservas tus sesiones con anticipación dentro del horario del gimnasio.</p></div>
+      </article>
+      <article class="why__c" data-anim>
+        <figure class="media"><picture><source type="image/avif" srcset="assets/img/comunidad-640.avif 640w, assets/img/comunidad-960.avif 960w, assets/img/comunidad-1440.avif 1440w, assets/img/comunidad-1920.avif 1920w" sizes="(min-width: 960px) 33vw, 100vw"><source type="image/webp" srcset="assets/img/comunidad-640.webp 640w, assets/img/comunidad-960.webp 960w, assets/img/comunidad-1440.webp 1440w, assets/img/comunidad-1920.webp 1920w" sizes="(min-width: 960px) 33vw, 100vw"><img src="assets/img/comunidad-960.jpg" srcset="assets/img/comunidad-640.jpg 640w, assets/img/comunidad-960.jpg 960w, assets/img/comunidad-1440.jpg 1440w, assets/img/comunidad-1920.jpg 1920w" sizes="(min-width: 960px) 33vw, 100vw" alt="Alumnos de Method Lab en un evento de la comunidad" width="1440" height="960" loading="lazy" decoding="async" data-cdn="https://methodlab.cl/cdn/shop/files/fec90185-27e8-4796-83c6-6f019fef1cac.jpg?v=1" onerror="mlImg(this)"></picture></figure>
+        <div class="why__t"><span class="num">05</span><h3>Comunidad activa</h3><p>Eventos, desafíos grupales y el apoyo de quienes entrenan contigo.</p></div>
+      </article>
+      <article class="why__c why__c--txt" data-anim data-review="En el sitio actual este bloque se titula “Resultados garantizados”. Se suavizó el título para no prometer resultados; confirmar con el cliente.">
+        <div class="why__t"><span class="num">06</span><h3>Un enfoque integral</h3><p>Programas diseñados con base científica, evaluaciones periódicas y ajustes constantes. Entrenamiento, nutrición y bienestar trabajando juntos para resultados reales y duraderos.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. COMUNIDAD E INSTALACIONES ============ -->
+<section class="sec sec--alt" id="instalaciones" aria-labelledby="gal-t">
+  <div class="wrap gal__head">
+    <div>
+      <p class="eyebrow" data-anim>Method Lab por dentro</p>
+      <h2 class="h2" id="gal-t" data-anim>Dónde ocurre el método.</h2>
+    </div>
+    <div class="gal__nav">
+      <button class="ibtn" type="button" data-gal="-1" aria-label="Imagen anterior"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+      <button class="ibtn" type="button" data-gal="1" aria-label="Imagen siguiente"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+    </div>
+  </div>
+  <div class="gal" id="gal" tabindex="0" role="region" aria-label="Galería de fotos, desplazable con las flechas">
+    <figure class="media"><picture><source type="image/avif" srcset="assets/img/plan-individual-640.avif 640w, assets/img/plan-individual-960.avif 960w, assets/img/plan-individual-1440.avif 1440w, assets/img/plan-individual-1920.avif 1920w" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw"><source type="image/webp" srcset="assets/img/plan-individual-640.webp 640w, assets/img/plan-individual-960.webp 960w, assets/img/plan-individual-1440.webp 1440w, assets/img/plan-individual-1920.webp 1920w" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw"><img src="assets/img/plan-individual-960.jpg" srcset="assets/img/plan-individual-640.jpg 640w, assets/img/plan-individual-960.jpg 960w, assets/img/plan-individual-1440.jpg 1440w, assets/img/plan-individual-1920.jpg 1920w" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw" alt="Sesión de entrenamiento en Method Lab" width="1440" height="960" loading="lazy" decoding="async" data-cdn="https://methodlab.cl/cdn/shop/files/DSC02559.jpg?v=1" onerror="mlImg(this)"></picture></figure>
+    <figure class="media"><picture><source type="image/avif" srcset="assets/img/ambiente-premium-640.avif 640w, assets/img/ambiente-premium-960.avif 960w, assets/img/ambiente-premium-1440.avif 1440w, assets/img/ambiente-premium-1920.avif 1920w" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw"><source type="image/webp" srcset="assets/img/ambiente-premium-640.webp 640w, assets/img/ambiente-premium-960.webp 960w, assets/img/ambiente-premium-1440.webp 1440w, assets/img/ambiente-premium-1920.webp 1920w" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw"><img src="assets/img/ambiente-premium-960.jpg" srcset="assets/img/ambiente-premium-640.jpg 640w, assets/img/ambiente-premium-960.jpg 960w, assets/img/ambiente-premium-1440.jpg 1440w, assets/img/ambiente-premium-1920.jpg 1920w" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw" alt="Espacio de entrenamiento de Method Lab" width="1440" height="960" loading="lazy" decoding="async" data-cdn="https://methodlab.cl/cdn/shop/files/9934C035-FA24-4DC3-AF19-5C3D1032841E.jpg?v=1" onerror="mlImg(this)"></picture></figure>
+    <figure class="media"><picture><source type="image/avif" srcset="assets/img/entrenamiento-640.avif 640w, assets/img/entrenamiento-960.avif 960w, assets/img/entrenamiento-1440.avif 1440w, assets/img/entrenamiento-1920.avif 1920w" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw"><source type="image/webp" srcset="assets/img/entrenamiento-640.webp 640w, assets/img/entrenamiento-960.webp 960w, assets/img/entrenamiento-1440.webp 1440w, assets/img/entrenamiento-1920.webp 1920w" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw"><img src="assets/img/entrenamiento-960.jpg" srcset="assets/img/entrenamiento-640.jpg 640w, assets/img/entrenamiento-960.jpg 960w, assets/img/entrenamiento-1440.jpg 1440w, assets/img/entrenamiento-1920.jpg 1920w" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw" alt="Coach y alumno durante una sesión" width="1440" height="960" loading="lazy" decoding="async" data-cdn="https://methodlab.cl/cdn/shop/files/253135E8-81C7-4795-A8B3-30DAE5DB9956_1_105_c.jpg?v=1" onerror="mlImg(this)"></picture></figure>
+    <figure class="media"><picture><source type="image/avif" srcset="assets/img/fuerza-ciencia-640.avif 640w, assets/img/fuerza-ciencia-960.avif 960w, assets/img/fuerza-ciencia-1440.avif 1440w, assets/img/fuerza-ciencia-1920.avif 1920w" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw"><source type="image/webp" srcset="assets/img/fuerza-ciencia-640.webp 640w, assets/img/fuerza-ciencia-960.webp 960w, assets/img/fuerza-ciencia-1440.webp 1440w, assets/img/fuerza-ciencia-1920.webp 1920w" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw"><img src="assets/img/fuerza-ciencia-960.jpg" srcset="assets/img/fuerza-ciencia-640.jpg 640w, assets/img/fuerza-ciencia-960.jpg 960w, assets/img/fuerza-ciencia-1440.jpg 1440w, assets/img/fuerza-ciencia-1920.jpg 1920w" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw" alt="Entrenamiento de fuerza en Method Lab" width="1440" height="960" loading="lazy" decoding="async" data-cdn="https://methodlab.cl/cdn/shop/files/16E110FD-177C-42DE-9BFD-8E6EF155D771.jpg?v=1" onerror="mlImg(this)"></picture></figure>
+    <figure class="media"><picture><source type="image/avif" srcset="assets/img/ciencia-datos-640.avif 640w, assets/img/ciencia-datos-960.avif 960w, assets/img/ciencia-datos-1440.avif 1440w, assets/img/ciencia-datos-1920.avif 1920w" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw"><source type="image/webp" srcset="assets/img/ciencia-datos-640.webp 640w, assets/img/ciencia-datos-960.webp 960w, assets/img/ciencia-datos-1440.webp 1440w, assets/img/ciencia-datos-1920.webp 1920w" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw"><img src="assets/img/ciencia-datos-960.jpg" srcset="assets/img/ciencia-datos-640.jpg 640w, assets/img/ciencia-datos-960.jpg 960w, assets/img/ciencia-datos-1440.jpg 1440w, assets/img/ciencia-datos-1920.jpg 1920w" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw" alt="Evaluación con instrumental profesional" width="1440" height="960" loading="lazy" decoding="async" data-cdn="https://methodlab.cl/cdn/shop/files/FC07D2CD-1DAD-43F9-BD7D-C104E3D1C16A_1_105_c.jpg?v=1" onerror="mlImg(this)"></picture></figure>
+    <figure class="media"><picture><source type="image/avif" srcset="assets/img/horarios-flexibles-640.avif 640w, assets/img/horarios-flexibles-960.avif 960w, assets/img/horarios-flexibles-1440.avif 1440w, assets/img/horarios-flexibles-1920.avif 1920w" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw"><source type="image/webp" srcset="assets/img/horarios-flexibles-640.webp 640w, assets/img/horarios-flexibles-960.webp 960w, assets/img/horarios-flexibles-1440.webp 1440w, assets/img/horarios-flexibles-1920.webp 1920w" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw"><img src="assets/img/horarios-flexibles-960.jpg" srcset="assets/img/horarios-flexibles-640.jpg 640w, assets/img/horarios-flexibles-960.jpg 960w, assets/img/horarios-flexibles-1440.jpg 1440w, assets/img/horarios-flexibles-1920.jpg 1920w" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw" alt="Alumna entrenando en Method Lab" width="1440" height="960" loading="lazy" decoding="async" data-cdn="https://methodlab.cl/cdn/shop/files/76297A7B-631C-476D-81E1-90026F6CD0DD_4_5005_c.jpg?v=1" onerror="mlImg(this)"></picture></figure>
+    <figure class="media"><picture><source type="image/avif" srcset="assets/img/entrenamiento-nutricion-640.avif 640w, assets/img/entrenamiento-nutricion-960.avif 960w, assets/img/entrenamiento-nutricion-1440.avif 1440w, assets/img/entrenamiento-nutricion-1920.avif 1920w" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw"><source type="image/webp" srcset="assets/img/entrenamiento-nutricion-640.webp 640w, assets/img/entrenamiento-nutricion-960.webp 960w, assets/img/entrenamiento-nutricion-1440.webp 1440w, assets/img/entrenamiento-nutricion-1920.webp 1920w" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw"><img src="assets/img/entrenamiento-nutricion-960.jpg" srcset="assets/img/entrenamiento-nutricion-640.jpg 640w, assets/img/entrenamiento-nutricion-960.jpg 960w, assets/img/entrenamiento-nutricion-1440.jpg 1440w, assets/img/entrenamiento-nutricion-1920.jpg 1920w" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw" alt="Entrenamiento en Method Lab" width="1440" height="960" loading="lazy" decoding="async" data-cdn="https://methodlab.cl/cdn/shop/files/89CE79A5-D50B-42F1-9094-96A183631990.jpg?v=1" onerror="mlImg(this)"></picture></figure>
+    <figure class="media"><picture><source type="image/avif" srcset="assets/img/comunidad-640.avif 640w, assets/img/comunidad-960.avif 960w, assets/img/comunidad-1440.avif 1440w, assets/img/comunidad-1920.avif 1920w" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw"><source type="image/webp" srcset="assets/img/comunidad-640.webp 640w, assets/img/comunidad-960.webp 960w, assets/img/comunidad-1440.webp 1440w, assets/img/comunidad-1920.webp 1920w" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw"><img src="assets/img/comunidad-960.jpg" srcset="assets/img/comunidad-640.jpg 640w, assets/img/comunidad-960.jpg 960w, assets/img/comunidad-1440.jpg 1440w, assets/img/comunidad-1920.jpg 1920w" sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw" alt="Comunidad de Method Lab" width="1440" height="960" loading="lazy" decoding="async" data-cdn="https://methodlab.cl/cdn/shop/files/fec90185-27e8-4796-83c6-6f019fef1cac.jpg?v=1" onerror="mlImg(this)"></picture></figure>
+  </div>
+
+  <!-- Componente de video preparado. El sitio actual no tiene videos.
+       Para activarlo: poner el archivo en assets/video/, completar src/poster y quitar "hidden". -->
+  <div class="wrap" hidden>
+    <figure class="vid media">
+      <video controls playsinline preload="none" poster="assets/img/plan-individual-1440.jpg" width="1920" height="1080">
+        <source src="assets/video/method-lab.mp4" type="video/mp4">
+      </video>
+      <figcaption class="vh">Video de Method Lab</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIOS (preparado, oculto: no hay testimonios reales publicados) ============ -->
+<section class="sec" id="testimonios" aria-labelledby="tes-t" hidden>
+  <div class="wrap">
+    <div class="sec__head"><p class="eyebrow">Alumnos</p><h2 class="h2" id="tes-t">Lo que dicen quienes entrenan aquí.</h2></div>
+    <div class="tes" id="tesList"></div>
+  </div>
+  <template id="tesTpl">
+    <figure class="tes__c"><blockquote><p>[Testimonio real y autorizado]</p></blockquote><figcaption><b>[Nombre]</b><span>[Plan]</span></figcaption></figure>
+  </template>
+</section>
+
+<!-- ============ 9. FAQ ============ -->
+<section class="sec sec--line" id="faq" aria-labelledby="faq-t">
+  <div class="wrap faq">
+    <div class="faq__head">
+      <p class="eyebrow" data-anim>Preguntas frecuentes</p>
+      <h2 class="h2" id="faq-t" data-anim>Antes de empezar.</h2>
+      <p class="lead" data-anim>¿Otra duda? <a href="https://wa.me/56961417901" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>.</p>
+    </div>
+    <div class="acc" data-anim>
+      <details><summary>¿Necesito experiencia previa?</summary><div class="acc__b"><p>No. En la evaluación inicial revisamos tu punto de partida y diseñamos el plan según tu nivel, tu tiempo y tus objetivos.</p></div></details>
+      <details><summary>¿Cómo funciona la evaluación gratuita?</summary><div class="acc__b"><p>Es sin costo ni compromiso. Evaluamos fuerza, movilidad y control motor, y revisamos tus objetivos para diseñar tu plan.</p></div></details>
+      <details><summary>¿Cuántas personas entrenan con un coach?</summary><div class="acc__b"><p>Las sesiones son semi-privadas, con aforos reducidos: máximo 2–3 personas por coach.</p></div></details>
+      <details><summary>¿Puedo entrenar con otra persona?</summary><div class="acc__b"><p>Sí. Con el Plan para 2 Personas entrenan en el mismo horario y con el mismo coach, con sesiones ajustadas al nivel de ambos y mediciones individuales.</p></div></details>
+      <details><summary>¿Qué incluye cada plan?</summary><div class="acc__b"><p>Todos incluyen evaluación inicial, programa 100 % personalizado y mediciones periódicas de fuerza. Eliges de 1 a 4 días por semana y una duración mensual, trimestral, semestral o anual.</p></div></details>
+      <details><summary>¿La nutrición se contrata por separado?</summary><div class="acc__b"><p>Se agrega eligiendo “Con nutricionista” en cualquier plan. Incluye consultas presenciales, evaluaciones ISAK de composición corporal, control mensual y pautas nutricionales.</p></div></details>
+      <details><summary>¿Cómo se organizan los horarios?</summary><div class="acc__b"><p>No hay día ni hora fija: agendas tus sesiones con anticipación dentro del horario del gimnasio.</p></div></details>
+      <details><summary>¿Cómo puedo pagar?</summary><div class="acc__b"><p>Con tarjetas Visa, Mastercard, American Express y Diners Club. <span data-review="Promoción publicada en el sitio actual. Confirmar vigencia.">Puedes pagar hasta en 3 cuotas sin interés y la matrícula es gratis.</span></p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. UBICACIÓN Y CONTACTO ============ -->
+<section class="sec sec--alt" id="contacto" aria-labelledby="con-t">
+  <div class="wrap con">
+    <div class="con__info">
+      <p class="eyebrow" data-anim>Ubicación y contacto</p>
+      <h2 class="h2" id="con-t" data-anim>Agenda tu evaluación gratuita.</h2>
+      <dl class="con__dl" data-anim>
+        <div>
+          <dt><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Dirección</dt>
+          <dd data-review="Dirección confirmada por el cliente. Corregir en el sitio actual: la página legal dice “Bilbao 2930”, la ficha del plan individual dice “Andrés Bello 2909” y su descripción para Google dice “Las Condes”.">Av. Francisco Bilbao 2970, Providencia<br><a href="https://maps.app.goo.gl/c57bSRTB8xeeejiK8" target="_blank" rel="noopener">Cómo llegar →</a></dd>
+        </div>
+        <div>
+          <dt><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Horario</dt>
+          <dd class="hrs" data-review="Horario contradictorio en el sitio actual: el bloque “Horarios flexibles” del inicio dice 5:00–23:00 todos los días; ubicación, contacto, fichas y pie de página dicen L–V 6:00–23:00 y S-D-feriados 9:00–19:00 (versión mostrada, por ser la que más se repite). Confirmar.">
+            Lunes a viernes · 6:00–23:00<br>Sábados, domingos y feriados · 9:00–19:00
+          </dd>
+        </div>
+        <div>
+          <dt><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>WhatsApp</dt>
+          <dd><a href="https://wa.me/56961417901" target="_blank" rel="noopener">+56 9 6141 7901</a></dd>
+        </div>
+        <div>
+          <dt><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>Correo</dt>
+          <dd><a href="mailto:methodlabgym@gmail.com">methodlabgym@gmail.com</a></dd>
+        </div>
+      </dl>
+
+      <div class="social" data-anim>
+        <a class="soc" href="https://www.instagram.com/methodlabgym/" target="_blank" rel="noopener" aria-label="Instagram de Method Lab, @methodlabgym (se abre en otra pestaña)"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r=".9" fill="currentColor" stroke="none"/></svg></a>
+        <a class="soc" href="https://wa.me/56961417901" target="_blank" rel="noopener" aria-label="WhatsApp de Method Lab (se abre en otra pestaña)"><svg class="ico ico--wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2A9.8 9.8 0 0 0 3.6 17l-1.3 4.8 4.9-1.3A9.8 9.8 0 1 0 12 2.2Z"/><path d="M8.6 7.6c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.2.3 0 .6.4.7 1 1.4 1.6 1.9.7.6 1.4.9 1.7 1 .2.1.4.1.5-.1l.7-.9c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.5.3 0 .2 0 .9-.3 1.5-.3.6-1.5 1.1-2 1.1-.6.1-1.2.2-3.8-.9-3.2-1.3-5.2-4.6-5.4-4.8-.1-.2-1.3-1.7-1.3-3.3 0-1.5.8-2.3 1.1-2.6Z" fill="currentColor" stroke="none"/></svg></a>
+        <div class="pc" id="pc">
+          <button class="pc__btn" type="button" id="pcBtn" aria-expanded="false" aria-controls="pcPanel">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12Z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01" stroke-width="2.4"/></svg>
+            <span>Contactar profesores</span>
+            <svg class="ico pc__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="pc__panel" id="pcPanel" role="dialog" aria-modal="false" aria-labelledby="pcTitle" hidden>
+            <div class="pc__head">
+              <p class="pc__title" id="pcTitle">Profesores Method Lab</p>
+              <button class="pc__x" type="button" data-pc-close aria-label="Cerrar contactos de profesores">
+                <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+              </button>
+            </div>
+            <ul class="pc__list">
+          <li class="pc__item">
+            <div class="pc__who">
+              <span class="pc__av" aria-hidden="true">Á</span>
+              <div>
+                <p class="pc__name">Profesor Álvaro</p>
+                <a class="pc__tel" href="tel:+56934038892" aria-label="Llamar al profesor Álvaro, +56 9 3403 8892">+56 9 3403 8892</a>
+              </div>
+            </div>
+            <div class="pc__acts">
+              <a class="pc__wa" href="https://wa.me/56934038892" target="_blank" rel="noopener" data-pc-pick aria-label="Abrir WhatsApp con el profesor Álvaro (se abre en otra pestaña)"><svg class="ico ico--wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2A9.8 9.8 0 0 0 3.6 17l-1.3 4.8 4.9-1.3A9.8 9.8 0 1 0 12 2.2Z"/><path d="M8.6 7.6c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.2.3 0 .6.4.7 1 1.4 1.6 1.9.7.6 1.4.9 1.7 1 .2.1.4.1.5-.1l.7-.9c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.5.3 0 .2 0 .9-.3 1.5-.3.6-1.5 1.1-2 1.1-.6.1-1.2.2-3.8-.9-3.2-1.3-5.2-4.6-5.4-4.8-.1-.2-1.3-1.7-1.3-3.3 0-1.5.8-2.3 1.1-2.6Z" fill="currentColor" stroke="none"/></svg><span>WhatsApp</span></a>
+              <button class="pc__copy" type="button" data-copy="+56 9 3403 8892" aria-label="Copiar número del profesor Álvaro">
+                <svg class="ico ico--copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4.5A1.5 1.5 0 0 1 3 13.5v-9A1.5 1.5 0 0 1 4.5 3h9A1.5 1.5 0 0 1 15 4.5V5"/></svg>
+                <svg class="ico ico--ok" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                <span class="pc__copy-l">Copiar</span>
+              </button>
+            </div>
+          </li>
+          <li class="pc__item">
+            <div class="pc__who">
+              <span class="pc__av" aria-hidden="true">W</span>
+              <div>
+                <p class="pc__name">Profesor William</p>
+                <a class="pc__tel" href="tel:+56972779125" aria-label="Llamar al profesor William, +56 9 7277 9125">+56 9 7277 9125</a>
+              </div>
+            </div>
+            <div class="pc__acts">
+              <a class="pc__wa" href="https://wa.me/56972779125" target="_blank" rel="noopener" data-pc-pick aria-label="Abrir WhatsApp con el profesor William (se abre en otra pestaña)"><svg class="ico ico--wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2A9.8 9.8 0 0 0 3.6 17l-1.3 4.8 4.9-1.3A9.8 9.8 0 1 0 12 2.2Z"/><path d="M8.6 7.6c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.2.3 0 .6.4.7 1 1.4 1.6 1.9.7.6 1.4.9 1.7 1 .2.1.4.1.5-.1l.7-.9c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.5.3 0 .2 0 .9-.3 1.5-.3.6-1.5 1.1-2 1.1-.6.1-1.2.2-3.8-.9-3.2-1.3-5.2-4.6-5.4-4.8-.1-.2-1.3-1.7-1.3-3.3 0-1.5.8-2.3 1.1-2.6Z" fill="currentColor" stroke="none"/></svg><span>WhatsApp</span></a>
+              <button class="pc__copy" type="button" data-copy="+56 9 7277 9125" aria-label="Copiar número del profesor William">
+                <svg class="ico ico--copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4.5A1.5 1.5 0 0 1 3 13.5v-9A1.5 1.5 0 0 1 4.5 3h9A1.5 1.5 0 0 1 15 4.5V5"/></svg>
+                <svg class="ico ico--ok" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                <span class="pc__copy-l">Copiar</span>
+              </button>
+            </div>
+          </li>
+            </ul>
+            <p class="vh" id="pcLive" aria-live="polite"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form class="form" id="leadForm" novalidate data-anim>
+      <h3 class="h3">Solicitar evaluación</h3>
+      <p class="muted form__intro">Formulario de demostración: puedes completarlo y probar las validaciones, pero no envía datos.</p>
+      <div class="fld">
+        <label for="fName">Nombre</label>
+        <input id="fName" name="name" type="text" autocomplete="name" required minlength="2" aria-describedby="eName">
+        <p class="fld__err" id="eName" aria-live="polite"></p>
+      </div>
+      <div class="fld">
+        <label for="fPhone">Teléfono</label>
+        <input id="fPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+56 9 1234 5678" aria-describedby="ePhone">
+        <p class="fld__err" id="ePhone" aria-live="polite"></p>
+      </div>
+      <div class="fld">
+        <label for="fGoal">Objetivo principal</label>
+        <select id="fGoal" name="goal" required aria-describedby="eGoal">
+          <option value="">Selecciona una opción</option>
+          <option>Rendimiento</option>
+          <option>Recomposición corporal</option>
+          <option>Pérdida de grasa</option>
+          <option>Ganancia muscular</option>
+          <option>Salud general</option>
+        </select>
+        <p class="fld__err" id="eGoal" aria-live="polite"></p>
+      </div>
+      <fieldset class="fld">
+        <legend>¿Con quién entrenarías?</legend>
+        <div class="seg seg--2 seg--sm">
+          <label><input type="radio" name="who" value="solo" checked><span>Solo/a</span></label>
+          <label><input type="radio" name="who" value="duo"><span>Con otra persona</span></label>
+        </div>
+      </fieldset>
+      <button class="btn btn--red btn--block" type="submit">Solicitar evaluación</button>
+      <p class="form__ok" id="formOk" role="status" hidden></p>
+    </form>
+  </div>
+
+  <div class="wrap">
+    <div class="map" id="map" data-anim>
+      <button class="map__btn" type="button" id="mapBtn">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        Ver mapa interactivo
+      </button>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ 11. FOOTER ============ -->
+<footer class="ftr">
+  <div class="wrap ftr__grid">
+    <div class="ftr__brand">
+      <picture>
+        <source srcset="assets/logo-methodlab.webp" type="image/webp">
+        <img src="assets/logo-methodlab.png" alt="Method Lab" width="300" height="161" loading="lazy">
+      </picture>
+      <p>Sin evidencia no hay ciencia. Entrenamiento de fuerza personalizado, evaluaciones con datos y nutrición deportiva en Providencia.</p>
+    </div>
+    <nav class="ftr__col" aria-label="Sitio">
+      <p class="ftr__h">Sitio</p>
+      <ul>
+        <li><a href="#metodo">Nuestro método</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#planes">Planes</a></li>
+        <li><a href="#faq">Preguntas frecuentes</a></li>
+      </ul>
+    </nav>
+    <div class="ftr__col">
+      <p class="ftr__h">Contacto</p>
+      <ul>
+        <li>Av. Francisco Bilbao 2970, Providencia</li>
+        <li><a href="https://wa.me/56961417901" target="_blank" rel="noopener">WhatsApp +56 9 6141 7901</a></li>
+        <li><a href="mailto:methodlabgym@gmail.com">methodlabgym@gmail.com</a></li>
+        <li><a href="https://www.instagram.com/methodlabgym/" target="_blank" rel="noopener">Instagram @methodlabgym</a></li>
+      </ul>
+    </div>
+    <form class="ftr__news" id="newsForm" novalidate>
+      <p class="ftr__h" id="newsT">Novedades</p>
+      <p class="muted">Suscríbete para recibir ofertas y noticias de Method Lab.</p>
+      <div class="news">
+        <label class="vh" for="nEmail">Correo electrónico</label>
+        <input id="nEmail" type="email" autocomplete="email" placeholder="tu@correo.cl" aria-describedby="nErr">
+        <button class="btn btn--ghost btn--sm" type="submit">Suscribirme</button>
+      </div>
+      <p class="fld__err" id="nErr" aria-live="polite"></p>
+    </form>
+  </div>
+  <div class="wrap ftr__legal">
+    <p>© <span id="yr">2026</span> Method Lab SpA · Versión demostrativa del nuevo sitio</p>
+    <ul>
+      <li><a href="https://methodlab.cl/policies/privacy-policy" target="_blank" rel="noopener">Privacidad</a></li>
+      <li><a href="https://methodlab.cl/policies/refund-policy" target="_blank" rel="noopener">Reembolsos</a></li>
+      <li><a href="https://methodlab.cl/policies/contact-information" target="_blank" rel="noopener">Información de contacto</a></li>
+    </ul>
+  </div>
+</footer>
+
+<div class="pc__scrim" id="pcScrim" hidden></div>
+
+<div class="mbar" id="mbar" aria-hidden="true">
+  <a class="btn btn--ghost btn--sm" href="#planes" tabindex="-1">Ver planes</a>
+  <a class="btn btn--red btn--sm" href="#contacto" tabindex="-1">Evaluación gratis</a>
+</div>
+
+<!-- Modal de demostración / detalle -->
+<dialog class="modal" id="modal" aria-labelledby="mTitle">
+  <div class="modal__box">
+    <button class="modal__x" type="button" data-close aria-label="Cerrar">
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <p class="eyebrow" id="mEye">Versión demo</p>
+    <h2 class="h3" id="mTitle">Tu selección</h2>
+    <div class="modal__body" id="mBody"></div>
+    <div class="modal__act" id="mAct"></div>
+  </div>
+</dialog>
+
+<!-- Panel de puntos por confirmar -->
+<dialog class="modal modal--side" id="review" aria-labelledby="rTitle">
+  <div class="modal__box">
+    <button class="modal__x" type="button" data-close aria-label="Cerrar">
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <p class="eyebrow">Revisión con el cliente</p>
+    <h2 class="h3" id="rTitle">Puntos por confirmar</h2>
+    <p class="muted">Contenido del sitio actual que es contradictorio, no verificable o falta. Los elementos quedan resaltados en la página mientras este modo está activo.</p>
+    <ol class="rev" id="revList"></ol>
+    <p class="rev__more">Además: el sitio actual no tiene videos ni testimonios publicados (componentes preparados y ocultos), las fichas de producto muestran todos los planes como “Agotado” y la portada del inicio es un PNG que podría incluir texto (revisar el encuadre).</p>
+  </div>
+</dialog>
+
+<script src="app.js" defer></script>
+</body>
+</html>
