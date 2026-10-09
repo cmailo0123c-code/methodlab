@@ -182,7 +182,7 @@ body.menu-open{overflow:hidden}
 /* Beneficios */
 .ben{display:grid;gap:1px;background:var(--c-line);border:1px solid var(--c-line);border-radius:var(--r-lg);overflow:hidden}
 .ben__i{background:var(--c-bg);padding:var(--s-6) var(--s-5);display:grid;gap:var(--s-3);align-content:start;transition:background-color var(--t-med) var(--ease-out)}
-.ben__i:hover{background:var(--c-surface)}
+@media (hover:hover){.ben__i:hover{background:var(--c-surface)}}
 .ben__i .ico--lg{margin-bottom:var(--s-2)}
 .ben__i h3{font:700 1.5rem/1.05 var(--f-display);text-transform:uppercase}
 .ben__i p{color:var(--c-text-2);font-size:.9375rem}
@@ -264,7 +264,7 @@ body.menu-open{overflow:hidden}
 .seg__img{display:block;aspect-ratio:16/10;border-radius:8px;overflow:hidden;background:var(--c-surface-2);margin-bottom:.75rem;position:relative}
 .seg__img img{width:100%;height:100%;object-fit:cover;opacity:.7;transition:opacity var(--t-med),transform .6s var(--ease-out)}
 .seg input:checked+span .seg__img img,.seg label:hover .seg__img img{opacity:1}
-.seg label:hover .seg__img img{transform:scale(1.03)}
+@media (hover:hover){.seg label:hover .seg__img img{transform:scale(1.03)}}
 .seg--plan b{font:700 1.375rem/1 var(--f-display);text-transform:uppercase;color:var(--c-text)}
 .seg--plan small{font-size:var(--fs-xs);color:var(--c-text-3);margin-top:.35rem}
 .seg label:hover>span{border-color:rgba(255,255,255,.35);color:var(--c-text)}
@@ -315,7 +315,7 @@ body.menu-open{overflow:hidden}
 .gal::-webkit-scrollbar{display:none}
 .gal figure{scroll-snap-align:start;aspect-ratio:4/5;border-radius:var(--r-lg);overflow:hidden;background:var(--c-surface)}
 .gal img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease-out)}
-.gal figure:hover img{transform:scale(1.03)}
+@media (hover:hover){.gal figure:hover img{transform:scale(1.03)}}
 @media (min-width:640px){.gal{grid-auto-columns:46%}}
 @media (min-width:1024px){.gal{grid-auto-columns:calc((min(100vw,var(--maxw)) - var(--s-4)*2)/3.2)}}
 
@@ -425,14 +425,10 @@ body.menu-open{overflow:hidden}
 .hdr__in{height:var(--hdr-h)}
 
 /* Modo revisión */
-.review-on [data-review]{position:relative;outline:1.5px dashed #f5a524;outline-offset:4px;border-radius:4px}
-.review-on [data-review]::after{content:attr(data-rev-n);position:absolute;top:-12px;right:-12px;min-width:20px;height:20px;padding:0 5px;border-radius:10px;background:#f5a524;color:#111;font:700 11px/20px var(--f-body);text-align:center;z-index:2}
-[data-review].is-flash{animation:flash 1.6s var(--ease-out)}
-@keyframes flash{0%,40%{background:rgba(245,165,36,.25)}100%{background:transparent}}
 
 /* Imágenes: placeholder si no hay archivo */
 .media{position:relative;background:var(--c-surface)}
-.media.is-missing::after{content:"Imagen pendiente";position:absolute;inset:0;display:grid;place-items:center;font-size:var(--fs-xs);letter-spacing:.12em;text-transform:uppercase;color:var(--c-text-3)}
+.media.is-missing{background:linear-gradient(135deg,#1a1a1d,#111113)}
 
 /* Pestañas */
 .tabs__list{position:relative;display:flex;gap:var(--s-1);overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--c-line-2);margin-bottom:var(--s-6)}
@@ -471,7 +467,7 @@ body.menu-open{overflow:hidden}
 .why__c:hover{border-color:var(--c-line-2)}
 .why__c figure{aspect-ratio:3/2;overflow:hidden}
 .why__c img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease-out)}
-.why__c:hover img{transform:scale(1.035)}
+@media (hover:hover){.why__c:hover img{transform:scale(1.035)}}
 .why__t{padding:var(--s-5);display:grid;gap:var(--s-2)}
 .why__t h3{font:700 1.5rem/1.05 var(--f-display);text-transform:uppercase}
 .why__t p{color:var(--c-text-2);font-size:.9375rem}
@@ -580,7 +576,7 @@ body.modal-open{overflow:hidden}
 .pc__panel.is-open .pc__item{opacity:1;transform:none;transition:opacity 240ms var(--ease-out),transform 260ms var(--ease-out),background-color var(--t-fast),border-color var(--t-fast)}
 .pc__panel.is-open .pc__item:nth-child(2){transition-delay:40ms,40ms,0ms,0ms}
 .pc__item+.pc__item{border-top-color:var(--c-line)}
-.pc__item:hover{background:rgba(255,255,255,.035);border-color:var(--c-line)}
+@media (hover:hover){.pc__item:hover{background:rgba(255,255,255,.035);border-color:var(--c-line)}}
 .pc__who{display:flex;align-items:center;gap:var(--s-3)}
 .pc__av{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--c-surface-2);border:1px solid var(--c-line-2);font:700 1.25rem/1 var(--f-display);color:var(--c-text)}
 .pc__name{font:700 1.25rem/1.1 var(--f-display);text-transform:uppercase;letter-spacing:.01em}
@@ -616,3 +612,25 @@ body.modal-open{overflow:hidden}
 }
 body.pc-sheet{overflow:hidden}
 body.pc-sheet .mbar{transform:translateY(110%)}
+
+/* Gráficas PNG originales: se muestran completas, sin recortar texto */
+.media img.is-contain{object-fit:contain!important;background:#0d0d0f}
+/* Portada: fondo mientras carga la foto (sin salto visual) */
+.hero__media{background:radial-gradient(120% 80% at 70% 30%,#1d1d21 0%,#0a0a0a 70%)}
+/* Sin herramienta de revisión en público */
+.demo__in{justify-content:flex-start}
+/* Celulares en horizontal (poca altura): portada compacta, título visible sin scroll */
+@media (orientation:landscape) and (max-height:520px){
+  :root{--hdr-h:60px;--demo-h:28px}
+  .hdr__logo img{height:38px}
+  .hero{min-height:auto;justify-content:flex-start}
+  .hero__in{padding-top:var(--s-5);padding-bottom:var(--s-5)}
+  .hero__t{font-size:clamp(2.25rem,9vh,3.25rem);max-width:none}
+  .hero__sub{margin-top:var(--s-3);font-size:1rem}
+  .hero__cta{margin-top:var(--s-4)}
+  .hero__cta .btn{flex:0 0 auto}
+  .mnav a:not(.btn){font-size:1.5rem;padding:.6rem 0}
+}
+/* FIX: .media (position:relative) anulaba el posicionamiento absoluto de la portada → la foto quedaba con altura 0 */
+.hero__media.media{position:absolute;inset:0}
+.hero__t{max-width:20ch}

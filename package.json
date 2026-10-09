@@ -3,9 +3,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "media": "node scripts/descargar-media.mjs"
+    "media": "node scripts/descargar-media.mjs",
+    "probar": "node scripts/probar.mjs",
+    "verificar": "node scripts/probar.mjs --browsers chromium"
   },
   "devDependencies": {
+    "playwright": "1.56.0",
     "sharp": "^0.34.0"
   }
 }

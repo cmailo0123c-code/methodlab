@@ -1,6 +1,7 @@
 /* METHOD LAB — demo interactiva (vanilla, sin dependencias, sin conexiones comerciales) */
 (() => {
   'use strict';
+  window.mlReady = true;
   const d = document;
   const $ = (s, c = d) => c.querySelector(s);
   const $$ = (s, c = d) => [...c.querySelectorAll(s)];
@@ -135,37 +136,6 @@
   modal.addEventListener('click', (e) => {
     const a = e.target.closest('a[href^="#"][data-close]');
     if (a) { e.preventDefault(); closeModal(modal); setTimeout(() => $(a.getAttribute('href'))?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }), 220); }
-  });
-
-  /* ---------- Modo revisión (puntos por confirmar) ---------- */
-  const revNodes = $$('[data-review]');
-  const reviewBtn = $('#reviewBtn'), review = $('#review');
-  const groups = new Map(); // mismo texto = mismo punto (p. ej. promociones repetidas)
-  revNodes.forEach((n) => {
-    const key = n.dataset.review.replace(/Promociones?/, 'Promoción');
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key).push(n);
-  });
-  $('#reviewCount').textContent = groups.size;
-  $('#revList').replaceChildren(...[...groups].map(([text, nodes], i) => {
-    nodes.forEach((n) => { n.dataset.revN = i + 1; });
-    const li = d.createElement('li'), b = d.createElement('button');
-    b.type = 'button';
-    b.innerHTML = `<span>${esc(text)}${nodes.length > 1 ? ` <em>(${nodes.length} lugares)</em>` : ''}</span>`;
-    b.addEventListener('click', () => {
-      closeModal(review);
-      setTimeout(() => {
-        nodes[0].scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
-        nodes.forEach((n) => { n.classList.add('is-flash'); setTimeout(() => n.classList.remove('is-flash'), 1600); });
-      }, 220);
-    });
-    li.append(b); return li;
-  }));
-  reviewBtn.addEventListener('click', () => {
-    const on = !d.body.classList.contains('review-on');
-    d.body.classList.toggle('review-on', on);
-    reviewBtn.setAttribute('aria-pressed', on);
-    if (on) openModal(review);
   });
 
   /* ---------- Header y barra móvil ---------- */
@@ -320,7 +290,7 @@
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(nEmail.value.trim())) { setErr(nEmail, 'Ingresa un correo válido.', nErr); nErr.classList.remove('is-ok'); nEmail.focus(); return; }
     setErr(nEmail, '', nErr);
     nErr.classList.add('is-ok');
-    nErr.textContent = 'Demo: el correo es válido, pero no se envió ni se guardó.';
+    nErr.textContent = 'La suscripción no está activa en esta demo: tu correo no se envió ni se guardó.';
   });
 
   /* ---------- Mapa diferido ---------- */

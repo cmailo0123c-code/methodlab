@@ -5,19 +5,26 @@ Demostración visual y funcional. **Sin conexión a Shopify**: ningún botón co
 ## Subir a GitHub / Vercel
 Sube el contenido de esta carpeta (index.html en la raíz). Vercel lo publica sin configuración.
 
-## Imágenes reales (hacer 1 vez)
+## Imágenes
+Las 12 fotos/gráficas son las ORIGINALES de methodlab.cl, servidas por el CDN de Shopify
+(`?width=` redimensiona y entrega WebP/AVIF automáticamente). No hay rutas locales que puedan dar 404.
+Opcional, para no depender de la tienda: `npm install && npm run media` genera `assets/img/`;
+luego regenerar el HTML con `src/build.py` (detecta `assets/img/media.json` y cambia a archivos locales).
+
+## Pruebas automáticas
 ```
 npm install
-npm run media
+npx playwright install chromium webkit firefox
+npm run probar
 ```
-Descarga los 12 originales de methodlab.cl y genera AVIF/WebP/JPG (640–1920 px) en `assets/img/`. Después sube `assets/img/` al repo.
-Mientras no lo hagas, la página carga las mismas fotos desde methodlab.cl automáticamente (nunca se ve rota).
+Prueba el sitio publicado en 9 tamaños de pantalla (360 a 1920 px, incluye horizontal) y los 14 flujos
+principales en Chromium, WebKit (Safari) y Firefox. `npm run verificar` = solo Chromium.
 
 ## Qué es demo
 - "Contratar plan" / "Ver detalle": modal con la selección y el aviso de demostración. Sin carrito, checkout ni pedidos.
 - Formulario de evaluación y newsletter: validan, pero no envían ni guardan nada (lo dicen en pantalla).
 - `<meta name="robots" content="noindex">`: quitar al pasar a producción.
-- Botón "Puntos por confirmar" (barra superior): resalta en la página todo lo que hay que validar con el cliente.
+- Sin enlaces a políticas de la tienda real (evita confundirlas con la demo).
 
 ## Contacto
 - Instagram oficial: https://www.instagram.com/methodlabgym/ (sección contacto, footer y datos estructurados).
@@ -36,8 +43,8 @@ Mientras no lo hagas, la página carga las mismas fotos desde methodlab.cl autom
 6. Fichas de producto muestran "Agotado" en todas las variantes.
 
 ## Material que no existe en el sitio original
-- Videos: ninguno. Componente listo y oculto en #instalaciones (`assets/video/method-lab.mp4`).
-- Testimonios: ninguno. Sección #testimonios lista y oculta.
+- Videos: ninguno publicado → no hay sección de video.
+- Testimonios: ninguno publicado → no hay sección de testimonios.
 - Logo vectorial (SVG): solo hay raster 300×161.
 - No usadas a propósito: PLANPERSONALIZADO8CLASES / PLANSTANDARD192CLASES (texto "8/192 clases" no verificado) y el banner Sin_titulo_2000x1080 (se archivan en `assets/img/originales/`).
-- Fotos asignadas por su sección original; revisar encuadres una vez descargadas (la portada es un PNG que podría tener texto).
+- Portada: foto DSC02559 (entrenamiento con coach). Las gráficas PNG se muestran completas (object-fit: contain) para no cortar texto.
