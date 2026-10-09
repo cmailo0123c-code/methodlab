@@ -211,6 +211,16 @@ body.menu-open{overflow:hidden}
 .vs__col--ml li{color:var(--c-text)}
 .vs__col--ml li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c-red);flex:none;transform:translateY(-1px)}
 @media (min-width:768px){.vs{grid-template-columns:1fr 1fr}.vs__col{padding:var(--s-7)}.vs__col+.vs__col{border-top:0;border-left:1px solid var(--c-line)}}
+/* Comparación ampliada: etiqueta de cada punto y filas alineadas entre columnas */
+.vs__k{display:block;margin-bottom:.15rem;font-size:var(--fs-xs);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--c-text-3)}
+.vs__col li{line-height:1.45}
+.vs__col li+li{border-top:1px solid var(--c-line)}
+.vs__col--ml .vs__k{color:var(--c-red-ink)}
+@media (min-width:768px){
+  .vs{grid-template-rows:auto repeat(6,auto)}
+  .vs__col{display:grid;grid-row:span 7;grid-template-rows:subgrid}
+  .vs__col ul{display:contents}
+}
 
 /* Pasos (timeline vertical en móvil, horizontal en escritorio) */
 .steps{position:relative;display:grid;gap:var(--s-6);counter-reset:s}
