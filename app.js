@@ -329,5 +329,18 @@
       fab.classList.add('is-used');
       setOpen(fab.classList.contains('is-collapsed'));
     });
+    // Celular/tablet: no tapar la portada; aparece al bajar y se ubica sobre la barra inferior
+    const heroEl = $('.hero'), mbarEl = $('#mbar'), small = matchMedia('(max-width: 1023px)');
+    let fabTick = false;
+    const placeFab = () => {
+      fabTick = false;
+      const away = small.matches && heroEl && scrollY < heroEl.offsetHeight * 0.6;
+      if (away && !fab.classList.contains('is-collapsed')) setOpen(false);
+      fab.classList.toggle('is-away', !!away);
+      fab.classList.toggle('is-low', small.matches && !(mbarEl && mbarEl.classList.contains('is-on')));
+    };
+    addEventListener('scroll', () => { if (!fabTick) { fabTick = true; requestAnimationFrame(placeFab); } }, { passive: true });
+    small.addEventListener('change', placeFab);
+    placeFab();
   }
 })();

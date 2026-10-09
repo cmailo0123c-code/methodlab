@@ -459,3 +459,9 @@ body.menu-open{overflow:hidden}
   .social.is-collapsed .fab__items>:nth-child(2){transform:translateY(calc(2 * (var(--fab) + 10px))) scale(.4)}
   .social.is-collapsed .fab__items>:nth-child(3){transform:translateY(calc(var(--fab) + 10px)) scale(.4)}}
 @media (prefers-reduced-motion:reduce){.fab__items>*,.fab__toggle{animation:none}.fab__toggle::after{display:none}}
+/* Celular/tablet: oculto sobre la portada; baja cuando no está la barra inferior */
+.social{transition:opacity 260ms var(--ease-out),transform 300ms var(--ease-out),visibility 0s}
+.social.is-away{opacity:0;visibility:hidden;transform:translateY(16px);transition:opacity 220ms var(--ease-out),transform 260ms var(--ease-out),visibility 0s 260ms}
+.social.is-away *{pointer-events:none!important}
+.social.is-low{transform:translateY(60px)}
+@media (max-width:479px){.hero__eye{letter-spacing:.12em;font-size:.6875rem;line-height:1.4}}
