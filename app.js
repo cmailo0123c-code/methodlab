@@ -308,4 +308,32 @@
   // const TESTIMONIOS = [{ texto: '', nombre: '', detalle: '' }];  // ← completar con testimonios reales y autorizados
 
   const yr = $('#yr'); if (yr) yr.textContent = new Date().getFullYear();
+
+  /* ---------- Contactar profesores (desplegable) ---------- */
+  const pc = $('#pc'), pcBtn = $('#pcBtn'), pcMenu = $('#pcMenu');
+  if (pc) {
+    let pcTimer;
+    const pcOpen = () => {
+      clearTimeout(pcTimer);
+      pcBtn.setAttribute('aria-expanded', 'true');
+      pcMenu.hidden = false;
+      pcMenu.classList.remove('is-right');
+      if (pcMenu.getBoundingClientRect().right > innerWidth - 8) pcMenu.classList.add('is-right');
+      requestAnimationFrame(() => pcMenu.classList.add('is-open'));
+      const b = pcMenu.getBoundingClientRect().bottom, limit = innerHeight - (innerWidth < 1024 ? 90 : 16);
+      if (b > limit) scrollBy({ top: b - limit, behavior: reduce ? 'auto' : 'smooth' });
+    };
+    const pcClose = (focus) => {
+      if (pcBtn.getAttribute('aria-expanded') !== 'true') return;
+      pcBtn.setAttribute('aria-expanded', 'false');
+      pcMenu.classList.remove('is-open');
+      pcTimer = setTimeout(() => { pcMenu.hidden = true; }, reduce ? 0 : 200);
+      if (focus) pcBtn.focus();
+    };
+    pcBtn.addEventListener('click', () => (pcBtn.getAttribute('aria-expanded') === 'true' ? pcClose() : pcOpen()));
+    pcMenu.addEventListener('click', (e) => { if (e.target.closest('a')) pcClose(); });
+    d.addEventListener('pointerdown', (e) => { if (!pc.contains(e.target)) pcClose(); });
+    d.addEventListener('keydown', (e) => { if (e.key === 'Escape' && pcBtn.getAttribute('aria-expanded') === 'true') pcClose(true); });
+    pc.addEventListener('focusout', (e) => { if (e.relatedTarget && !pc.contains(e.relatedTarget)) pcClose(); });
+  }
 })();

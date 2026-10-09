@@ -398,3 +398,22 @@ body.menu-open{overflow:hidden}
   .js [data-anim],.js .reveal-img img{opacity:1!important;transform:none!important;clip-path:none!important}
   .hero__media img{transform:none}
 }
+
+/* ---------- Contacto: Instagram, WhatsApp y profesores ---------- */
+.social{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s-2);margin-top:var(--s-6)}
+.soc{width:48px;height:48px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--c-line-2);color:var(--c-text);transition:background-color var(--t-fast),color var(--t-fast),border-color var(--t-fast)}
+.soc:hover{background:#fff;color:#000;border-color:#fff}
+.pc{position:relative}
+.pc__btn{display:inline-flex;align-items:center;gap:.5rem;min-height:48px;padding:0 1.1rem;border-radius:var(--r-pill);border:1px solid var(--c-line-2);font-weight:700;font-size:.9375rem;transition:border-color var(--t-fast),background-color var(--t-fast)}
+.pc__btn:hover{border-color:#fff}
+.pc__btn[aria-expanded="true"]{border-color:var(--c-red)}
+.pc__chev{width:18px;height:18px;transition:transform var(--t-med) var(--ease-out)}
+.pc__btn[aria-expanded="true"] .pc__chev{transform:rotate(180deg)}
+.pc__menu{position:absolute;top:calc(100% + 8px);left:0;z-index:90;width:min(300px,calc(100vw - 2*var(--gutter)));padding:var(--s-2);background:var(--c-surface);border:1px solid var(--c-line-2);border-radius:var(--r-md);opacity:0;transform:translateY(-6px);transition:opacity 200ms var(--ease-out),transform 200ms var(--ease-out)}
+.pc__menu.is-right{left:auto;right:0}
+.pc__menu.is-open{opacity:1;transform:none}
+.pc__item{display:flex;align-items:center;gap:var(--s-3);min-height:56px;padding:.5rem .75rem;border-radius:var(--r-sm);text-decoration:none;transition:background-color var(--t-fast)}
+.pc__item:hover,.pc__item:focus-visible{background:var(--c-surface-2)}
+.pc__item .ico{color:var(--c-red-ink)}
+.pc__item span{display:grid;line-height:1.3}
+.pc__item small{font-size:var(--fs-sm);color:var(--c-text-2)}
