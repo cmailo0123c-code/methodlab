@@ -401,26 +401,58 @@ body.menu-open{overflow:hidden}
 
 /* ---------- Contacto flotante: Instagram, WhatsApp y profesores ---------- */
 .social{--fab:52px;position:fixed;right:max(16px,env(safe-area-inset-right));bottom:calc(24px + env(safe-area-inset-bottom));z-index:85;display:flex;flex-direction:column;gap:12px}
-.soc,.pc__btn{width:var(--fab);height:var(--fab);display:grid;place-items:center;border-radius:50%;padding:0;-webkit-tap-highlight-color:transparent;touch-action:manipulation;transition:background-color var(--t-fast) var(--ease-out),border-color var(--t-fast) var(--ease-out),color var(--t-fast),transform var(--t-fast) var(--ease-out)}
+/* Entrada escalonada al cargar */
+.social>*{animation:fabIn 520ms var(--ease-out) backwards}
+.social>:nth-child(1){animation-delay:500ms}
+.social>:nth-child(2){animation-delay:580ms}
+.social>:nth-child(3){animation-delay:660ms}
+@keyframes fabIn{from{opacity:0;transform:translateX(24px) scale(.85)}to{opacity:1;transform:none}}
+
+.soc,.pc__btn{position:relative;width:var(--fab);height:var(--fab);display:grid;place-items:center;border-radius:50%;padding:0;-webkit-tap-highlight-color:transparent;touch-action:manipulation;transition:background-color var(--t-fast) var(--ease-out),border-color var(--t-fast) var(--ease-out),color var(--t-fast),transform 220ms var(--ease-out),box-shadow 220ms var(--ease-out)}
 .soc{background:var(--c-surface);border:1px solid rgba(202,35,29,.45);color:#fff;box-shadow:0 8px 24px -8px rgba(0,0,0,.7)}
-.soc .ico{width:22px;height:22px}
+.soc .ico,.pc__chev{width:22px;height:22px;transition:transform 260ms var(--ease-out)}
 .pc{position:relative}
 .pc__btn{background:var(--c-red);border:1px solid var(--c-red);color:#fff;box-shadow:0 10px 28px -10px rgba(202,35,29,.6)}
-.pc__btn:active,.soc:active{transform:scale(.94)}
-.pc__chev{width:22px;height:22px;transition:transform var(--t-med) var(--ease-out)}
+/* Pulso sutil del botón de profesores (se detiene al usarlo) */
+.pc__btn::after{content:"";position:absolute;inset:-1px;border-radius:50%;border:2px solid var(--c-red);opacity:0;pointer-events:none;animation:fabPulse 2.8s var(--ease-out) 1.6s 3}
+.pc.is-used .pc__btn::after,.pc__btn[aria-expanded="true"]::after{animation:none}
+@keyframes fabPulse{0%{opacity:.7;transform:scale(1)}70%,100%{opacity:0;transform:scale(1.55)}}
 .pc__btn[aria-expanded="true"] .pc__chev{transform:rotate(180deg)}
+.pc__btn[aria-expanded="true"]{background:var(--c-red-lo);border-color:var(--c-red-lo)}
+.soc:active,.pc__btn:active{transform:scale(.92)}
+
+/* Etiqueta al pasar el mouse o con foco de teclado */
+[data-tip]{position:relative}
+[data-tip]::before{content:attr(data-tip);position:absolute;right:calc(100% + 12px);top:50%;padding:.4rem .7rem;border-radius:var(--r-sm);background:var(--c-surface);border:1px solid var(--c-line-2);color:var(--c-text);font-size:var(--fs-xs);font-weight:700;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;pointer-events:none;opacity:0;transform:translate(6px,-50%);transition:opacity 180ms var(--ease-out),transform 220ms var(--ease-out)}
 @media (hover:hover){
-  .soc:hover{background:var(--c-red);border-color:var(--c-red)}
-  .pc__btn:hover{background:var(--c-red-hi);border-color:var(--c-red-hi)}
+  .soc:hover{background:var(--c-red);border-color:var(--c-red);transform:translateY(-3px);box-shadow:0 14px 28px -10px rgba(202,35,29,.6)}
+  .soc:hover .ico{transform:scale(1.1)}
+  .pc__btn:hover{background:var(--c-red-hi);border-color:var(--c-red-hi);transform:translateY(-3px);box-shadow:0 16px 32px -10px rgba(202,35,29,.75)}
+  [data-tip]:hover::before{opacity:1;transform:translate(0,-50%)}
 }
-.pc__menu{position:absolute;right:calc(100% + 12px);bottom:0;width:min(280px,calc(100vw - var(--fab) - 56px));padding:var(--s-2);background:var(--c-surface);border:1px solid var(--c-line-2);border-radius:var(--r-md);box-shadow:0 18px 44px -12px rgba(0,0,0,.75);opacity:0;transform:translateX(8px) scale(.98);transform-origin:bottom right;transition:opacity 220ms var(--ease-out),transform 240ms var(--ease-out)}
+[data-tip]:focus-visible::before,.pc:focus-within:not(.is-open)::before{opacity:1;transform:translate(0,-50%)}
+.pc.is-open::before{opacity:0!important}
+
+/* Panel de profesores */
+.pc__menu{position:absolute;right:calc(100% + 12px);bottom:0;width:min(280px,calc(100vw - var(--fab) - 56px));padding:var(--s-2);background:var(--c-surface);border:1px solid var(--c-line-2);border-radius:var(--r-md);box-shadow:0 18px 44px -12px rgba(0,0,0,.75);opacity:0;transform:translateX(12px) scale(.96);transform-origin:bottom right;transition:opacity 220ms var(--ease-out),transform 260ms var(--ease-out)}
 .pc__menu.is-open{opacity:1;transform:none}
+.pc__menu li{opacity:0;transform:translateX(10px);transition:opacity 200ms var(--ease-out),transform 260ms var(--ease-out)}
+.pc__menu.is-open li{opacity:1;transform:none}
+.pc__menu.is-open li:nth-child(1){transition-delay:60ms}
+.pc__menu.is-open li:nth-child(2){transition-delay:120ms}
 .pc__menu li+li{border-top:1px solid var(--c-line);margin-top:4px;padding-top:4px}
-.pc__item{display:flex;align-items:center;gap:var(--s-3);min-height:56px;padding:.5rem .75rem;border-radius:var(--r-sm);text-decoration:none;transition:background-color var(--t-fast)}
-.pc__item:hover,.pc__item:focus-visible{background:var(--c-surface-2)}
-.pc__item .ico{color:var(--c-red-ink)}
+.pc__item{display:flex;align-items:center;gap:var(--s-3);min-height:56px;padding:.5rem .75rem;border-radius:var(--r-sm);text-decoration:none;transition:background-color var(--t-fast),transform 200ms var(--ease-out)}
+.pc__item .ico{color:var(--c-red-ink);transition:transform 220ms var(--ease-out)}
 .pc__item span{display:grid;line-height:1.3}
 .pc__item b{color:#fff}
 .pc__item small{font-size:var(--fs-sm);color:var(--c-text-2)}
+.pc__item:focus-visible{background:var(--c-surface-2)}
+@media (hover:hover){
+  .pc__item:hover{background:var(--c-surface-2);transform:translateX(-2px)}
+  .pc__item:hover .ico{transform:scale(1.12)}
+}
+.pc__item:active{transform:scale(.98)}
+
 /* Celular y tablet: por encima de la barra inferior de botones */
 @media (max-width:1023px){.social{--fab:48px;bottom:calc(84px + env(safe-area-inset-bottom));gap:10px}}
+@media (prefers-reduced-motion:reduce){.social>*{animation:none}.pc__btn::after{display:none}}

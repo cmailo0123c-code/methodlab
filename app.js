@@ -316,12 +316,14 @@
     const pcOpen = () => {
       clearTimeout(pcTimer);
       pcBtn.setAttribute('aria-expanded', 'true');
+      pc.classList.add('is-open', 'is-used');
       pcMenu.hidden = false;
       requestAnimationFrame(() => pcMenu.classList.add('is-open'));
     };
     const pcClose = (focus) => {
       if (pcBtn.getAttribute('aria-expanded') !== 'true') return;
       pcBtn.setAttribute('aria-expanded', 'false');
+      pc.classList.remove('is-open');
       pcMenu.classList.remove('is-open');
       pcTimer = setTimeout(() => { pcMenu.hidden = true; }, reduce ? 0 : 200);
       if (focus) pcBtn.focus();
