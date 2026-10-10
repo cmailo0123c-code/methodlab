@@ -495,8 +495,9 @@ body.menu-open{overflow:hidden}
 .toast__act{display:grid;grid-template-columns:1.3fr 1fr;gap:var(--s-2)}
 .toast__act .btn{padding:0 .75rem}
 
-.cartpage .hdr{position:sticky}
-.cart{padding-top:var(--s-7);padding-bottom:var(--s-9);min-height:70vh}
+/* Página del carrito: header fijo igual que en el inicio (sticky fallaba en Safari) */
+.cartpage .hdr{position:fixed}
+.cart{padding-top:calc(var(--hdr-h) + env(safe-area-inset-top) + var(--s-7));padding-bottom:var(--s-9);min-height:70vh}
 .cart .h2{margin-bottom:var(--s-6)}
 .cart__grid{display:grid;gap:var(--s-5);align-items:start}
 @media (min-width:900px){.cart__grid{grid-template-columns:1.5fr 1fr;gap:var(--s-7)}.cart__sum{position:sticky;top:calc(var(--hdr-h) + var(--s-5))}}
@@ -521,3 +522,14 @@ body.menu-open{overflow:hidden}
 .cart__total{padding-top:var(--s-3);border-top:1px solid var(--c-line);color:var(--c-text)!important}
 .cart__total dd{font:700 2rem/1 var(--f-display)}
 .cart__sum[hidden]{display:none}
+
+/* El resumen queda fijo al costado mientras bajas (escritorio) */
+@media (min-width:900px){.cart__sum{position:sticky;top:calc(var(--hdr-h) + var(--s-5))}}
+/* Ítems del carrito más compactos en pantallas medianas y grandes: datos | cantidad | precio */
+@media (min-width:640px){
+  .cart__item{grid-template-columns:1fr auto minmax(130px,auto);grid-template-areas:"info qty line" "info qty rm";gap:var(--s-1) var(--s-6)}
+  .cart__info{grid-area:info;grid-column:auto}
+  .cart__qty{grid-area:qty;align-self:center}
+  .cart__line{grid-area:line;align-self:end}
+  .cart__rm{grid-area:rm;grid-column:auto;align-self:start}
+}
