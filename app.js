@@ -282,7 +282,7 @@
       if (name.value.trim().length < 2) { setErr(name, 'Escribe tu nombre.'); ok = false; } else setErr(name, '');
       if (!goal.value) { setErr(goal, 'Elige tu objetivo principal.'); ok = false; } else setErr(goal, '');
       const prof = $('input[name="prof"]:checked', lead), first = $('input[name="prof"]', lead);
-      if (!prof) { setErr(first, 'Elige con qué profesor quieres agendar.'); ok = false; } else setErr(first, '');
+      if (!prof) { setErr(first, 'Elige con qué entrenador quieres agendar.'); ok = false; } else setErr(first, '');
       return ok;
     };
     [name, goal].forEach(i => i.addEventListener('input', () => { if (i.closest('.fld').classList.contains('has-err')) check(); }));
@@ -298,10 +298,10 @@
       if (!check()) { $('[aria-invalid="true"]', lead).focus(); return; }
       const f = new FormData(lead);
       const msg = [
-        `Hola Profesor ${f.get('prof')}, quiero agendar mi evaluación gratuita en Method Lab.`,
+        `Hola ${f.get('prof')}, me gustaría agendar mi evaluación gratuita en Method Lab.`,
         `Nombre: ${f.get('name').trim()}`,
         `Objetivo: ${f.get('goal')}`,
-        `Entrenaría: ${f.get('who')}`,
+        `Modalidad: ${f.get('who')}`,
         f.get('when').trim() ? `Horario preferido: ${f.get('when').trim()}` : ''
       ].filter(Boolean).join('\n');
       const btn = $('button[type="submit"]', lead);

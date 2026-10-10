@@ -520,7 +520,7 @@
 
     <form class="form" id="leadForm" novalidate data-anim>
       <h3 class="h3">Solicitar evaluación</h3>
-      <p class="muted form__intro">Completa tus datos, elige tu profesor y te llevamos a su WhatsApp con el mensaje listo para enviar.</p>
+      <p class="muted form__intro">Completa tus datos, elige tu entrenador y te llevamos a su WhatsApp con el mensaje listo para enviar.</p>
       <div class="fld">
         <label for="fName">Nombre</label>
         <input id="fName" name="name" type="text" autocomplete="name" required minlength="2" aria-describedby="eName">
@@ -539,17 +539,17 @@
         <p class="fld__err" id="eGoal" aria-live="polite"></p>
       </div>
       <fieldset class="fld">
-        <legend>¿Con quién entrenarías?</legend>
+        <legend>Modalidad de entrenamiento</legend>
         <div class="seg seg--2 seg--sm">
-          <label><input type="radio" name="who" value="Solo/a" checked><span>Solo/a</span></label>
-          <label><input type="radio" name="who" value="Con otra persona"><span>Con otra persona</span></label>
+          <label><input type="radio" name="who" value="Individual" checked><span>Individual</span></label>
+          <label><input type="radio" name="who" value="En dupla"><span>En dupla</span></label>
         </div>
       </fieldset>
       <fieldset class="fld" aria-describedby="eProf">
-        <legend>¿Con qué profesor quieres agendar?</legend>
+        <legend>¿Con qué entrenador quieres agendar?</legend>
         <div class="seg seg--2 seg--prof">
-          <label><input type="radio" name="prof" value="William"><span><picture><source srcset="assets/profesores/william.webp" type="image/webp"><img src="assets/profesores/william.jpg" alt="" width="160" height="160" loading="lazy" decoding="async"></picture><b>Profesor William</b></span></label>
-          <label><input type="radio" name="prof" value="Álvaro"><span><picture><source srcset="assets/profesores/alvaro.webp" type="image/webp"><img src="assets/profesores/alvaro.jpg" alt="" width="160" height="160" loading="lazy" decoding="async"></picture><b>Profesor Álvaro</b></span></label>
+          <label><input type="radio" name="prof" value="William"><span><picture><source srcset="assets/profesores/william.webp" type="image/webp"><img src="assets/profesores/william.jpg" alt="" width="160" height="160" loading="lazy" decoding="async"></picture><b>Entrenador William</b></span></label>
+          <label><input type="radio" name="prof" value="Álvaro"><span><picture><source srcset="assets/profesores/alvaro.webp" type="image/webp"><img src="assets/profesores/alvaro.jpg" alt="" width="160" height="160" loading="lazy" decoding="async"></picture><b>Entrenador Álvaro</b></span></label>
         </div>
         <p class="fld__err" id="eProf" aria-live="polite"></p>
       </fieldset>
@@ -560,7 +560,7 @@
       <button class="btn btn--red btn--block" type="submit">
         <span class="btn__lbl" id="leadBtnLbl">Agendar por WhatsApp</span><span class="spin" aria-hidden="true"></span>
       </button>
-      <p class="form__ok" id="formOk" role="status" hidden>Listo. Se abrió el WhatsApp del profesor con tu mensaje; solo presiona enviar.</p>
+      <p class="form__ok" id="formOk" role="status" hidden>Listo. Se abrió el WhatsApp de tu entrenador con tu mensaje; solo presiona enviar.</p>
     </form>
   </div>
 
