@@ -281,15 +281,24 @@
       let ok = true;
       if (name.value.trim().length < 2) { setErr(name, 'Escribe tu nombre.'); ok = false; } else setErr(name, '');
       if (!goal.value) { setErr(goal, 'Elige tu objetivo principal.'); ok = false; } else setErr(goal, '');
+      const prof = $('input[name="prof"]:checked', lead), first = $('input[name="prof"]', lead);
+      if (!prof) { setErr(first, 'Elige con qué profesor quieres agendar.'); ok = false; } else setErr(first, '');
       return ok;
     };
     [name, goal].forEach(i => i.addEventListener('input', () => { if (i.closest('.fld').classList.contains('has-err')) check(); }));
+    // Profesor elegido → su WhatsApp
+    const PROFES = { 'William': '56972779125', 'Álvaro': '56934038892' };
+    lead.addEventListener('change', (e) => {
+      if (e.target.name !== 'prof') return;
+      $('#leadBtnLbl').textContent = `Agendar con ${e.target.value} por WhatsApp`;
+      if (e.target.closest('.fld').classList.contains('has-err')) check();
+    });
     lead.addEventListener('submit', (e) => {
       e.preventDefault();
       if (!check()) { $('[aria-invalid="true"]', lead).focus(); return; }
       const f = new FormData(lead);
       const msg = [
-        `Hola Method Lab, quiero agendar mi evaluación gratuita.`,
+        `Hola Profesor ${f.get('prof')}, quiero agendar mi evaluación gratuita en Method Lab.`,
         `Nombre: ${f.get('name').trim()}`,
         `Objetivo: ${f.get('goal')}`,
         `Entrenaría: ${f.get('who')}`,
@@ -297,7 +306,7 @@
       ].filter(Boolean).join('\n');
       const btn = $('button[type="submit"]', lead);
       btn.classList.add('is-loading');
-      window.open(`https://wa.me/56961417901?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+      window.open(`https://wa.me/${PROFES[f.get('prof')]}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
       setTimeout(() => { btn.classList.remove('is-loading'); $('#formOk').hidden = false; }, 600);
     });
   }

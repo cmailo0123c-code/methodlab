@@ -533,3 +533,12 @@ body.menu-open{overflow:hidden}
   .cart__line{grid-area:line;align-self:end}
   .cart__rm{grid-area:rm;grid-column:auto;align-self:start}
 }
+
+/* Formulario: elegir profesor (foto + nombre) */
+.seg--prof label>span{flex-direction:row;justify-content:flex-start;gap:.75rem;min-height:64px;padding:.6rem .9rem;text-align:left}
+.seg--prof picture,.seg--prof img{width:40px;height:40px;border-radius:50%;object-fit:cover;flex:none}
+.seg--prof picture{border:2px solid var(--c-line-2);transition:border-color var(--t-fast)}
+.seg--prof input:checked+span picture{border-color:var(--c-red)}
+.seg--prof b{font-weight:700;color:var(--c-text);line-height:1.2}
+.fld.has-err .seg--prof label>span{border-color:var(--c-red-ink)}
+@media (max-width:359px){.seg--prof label>span{flex-direction:column;justify-content:center;text-align:center;gap:.4rem}}
