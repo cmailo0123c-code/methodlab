@@ -298,7 +298,7 @@
       if (!check()) { $('[aria-invalid="true"]', lead).focus(); return; }
       const f = new FormData(lead);
       const msg = [
-        `Hola ${f.get('prof')}, me gustaría agendar mi evaluación gratuita en Method Lab.`,
+        `Hola Entrenador ${f.get('prof')}, me gustaría agendar mi evaluación gratuita en Method Lab.`,
         `Nombre: ${f.get('name').trim()}`,
         `Objetivo: ${f.get('goal')}`,
         `Modalidad: ${f.get('who')}`,
