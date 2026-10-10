@@ -309,6 +309,24 @@
 
   const yr = $('#yr'); if (yr) yr.textContent = new Date().getFullYear();
 
+  /* ---------- Celular/tablet: los enlaces a #contacto bajan directo al formulario ---------- */
+  const leadForm = $('#leadForm'), stacked = matchMedia('(max-width: 959px)');
+  if (leadForm) {
+    d.addEventListener('click', (e) => {
+      const a = e.target.closest('a[href="#contacto"]');
+      if (!a || !stacked.matches) return;
+      e.preventDefault();
+      const go = () => {
+        // offsetTop ignora el desplazamiento de la animación de entrada → posición final exacta
+        let y = 0; for (let n = leadForm; n; n = n.offsetParent) y += n.offsetTop;
+        const pad = parseFloat(getComputedStyle(d.documentElement).scrollPaddingTop) || 0;
+        scrollTo({ top: y - pad, behavior: reduce ? 'auto' : 'smooth' });
+      };
+      if (a.closest('#mnav')) setTimeout(go, reduce ? 0 : 300); else requestAnimationFrame(go); // espera a que cierre el menú
+      history.replaceState(null, '', '#contacto');
+    });
+  }
+
   /* ---------- Contacto flotante: la flecha esconde / muestra los botones ---------- */
   const fab = $('#fab'), fabToggle = $('#fabToggle'), fabItems = $('#fabItems');
   if (fab) {
