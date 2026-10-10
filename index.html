@@ -26,7 +26,7 @@
 <link rel="preload" as="image" href="https://methodlab.cl/cdn/shop/files/DSC02559.jpg?width=1200" imagesrcset="https://methodlab.cl/cdn/shop/files/DSC02559.jpg?width=750 750w, https://methodlab.cl/cdn/shop/files/DSC02559.jpg?width=1200 1200w, https://methodlab.cl/cdn/shop/files/DSC02559.jpg?width=1920 1920w" imagesizes="100vw" fetchpriority="high">
 <link rel="preload" href="assets/fonts/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=20261009-2">
+<link rel="stylesheet" href="styles.css?v=20261009-3">
 <script>document.documentElement.classList.add('js')</script>
 
 <script type="application/ld+json">
@@ -79,8 +79,9 @@
       </ul>
     </nav>
     <div class="hdr__act">
-      <a class="hdr__cart" href="https://methodlab.cl/cart" aria-label="Ver carrito">
+      <a class="hdr__cart" href="carrito.html" aria-label="Ver carrito">
         <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-count" data-cart-count hidden>0</span>
       </a>
       <a class="btn btn--red btn--sm hdr__cta" href="#contacto">Evaluación gratis</a>
       <button class="burger" id="burger" aria-expanded="false" aria-controls="mnav" aria-label="Abrir menú">
@@ -104,7 +105,7 @@
   </nav>
   <div class="mnav__foot">
     <a class="btn btn--red btn--block" href="#contacto">Agendar evaluación gratuita</a>
-    <a class="btn btn--ghost btn--block" href="https://methodlab.cl/cart">Ver carrito</a>
+    <a class="btn btn--ghost btn--block" href="carrito.html">Ver carrito</a>
   </div>
 </div>
 
@@ -355,7 +356,7 @@
           <li>Mediciones periódicas de fuerza</li>
         </ul>
         <a class="btn btn--red btn--block" id="buyBtn" href="https://methodlab.cl/cart/49105543823606:1">
-          <span class="btn__lbl">Contratar plan</span>
+          <span class="btn__lbl">Agregar al carrito</span>
           <span class="spin" aria-hidden="true"></span>
         </a>
         <a class="cfg__more" id="detailLink" href="https://methodlab.cl/products/plan-100-personalizado-de-entrenamiento-individual?variant=49105543823606">Ver detalle del plan</a>
@@ -590,7 +591,7 @@
       <ul>
         <li><a href="https://methodlab.cl/products/plan-100-personalizado-de-entrenamiento-individual">Plan Individual</a></li>
         <li><a href="https://methodlab.cl/products/plan-100-personalizado-de-entrenamiento-para-2-personas">Plan 2 Personas</a></li>
-        <li><a href="https://methodlab.cl/cart">Carrito</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
         <li><a href="https://methodlab.cl/customer_authentication/redirect?locale=es&amp;region_country=CL">Mi cuenta</a></li>
       </ul>
     </nav>
@@ -614,6 +615,20 @@
     </ul>
   </div>
 </footer>
+
+<!-- Aviso: plan agregado al carrito -->
+<div class="toast" id="cartToast" role="status" aria-live="polite" hidden>
+  <div class="toast__head">
+    <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+    <p>Plan agregado al carrito</p>
+    <button class="toast__x" type="button" data-toast-close aria-label="Cerrar aviso"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  </div>
+  <p class="toast__item" id="toastItem"></p>
+  <div class="toast__act">
+    <a class="btn btn--red btn--sm" href="carrito.html">Ver carrito y pagar</a>
+    <button class="btn btn--ghost btn--sm" type="button" data-toast-close>Seguir viendo</button>
+  </div>
+</div>
 
 <!-- Contacto flotante: Instagram y WhatsApp de profesores (la flecha los esconde/muestra) -->
 <div class="social is-collapsed" id="fab" aria-label="Contacto rápido">
@@ -642,6 +657,7 @@
   <a class="btn btn--red btn--sm" href="#contacto" tabindex="-1">Evaluación gratis</a>
 </div>
 
-<script src="app.js?v=20261009-2" defer></script>
+<script src="cart.js?v=20261009-3" defer></script>
+<script src="app.js?v=20261009-3" defer></script>
 </body>
 </html>

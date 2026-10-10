@@ -104,7 +104,7 @@
       return;
     }
     el.buy.removeAttribute('aria-disabled');
-    el.buy.querySelector('.btn__lbl').textContent = 'Contratar plan';
+    el.buy.querySelector('.btn__lbl').textContent = 'Agregar al carrito';
     el.price.textContent = clp.format(v.price);
     el.per.textContent = months === 1 ? 'pago mensual' : `pago total · ${months} meses`;
     if (months > 1) {
@@ -128,8 +128,25 @@
       if (e[0].isIntersecting) { o.disconnect(); liveSync('individual'); liveSync('duo'); }
     }, { rootMargin: '600px' });
     io.observe(form);
-    el.buy.addEventListener('click', () => { if (el.buy.href) el.buy.classList.add('is-loading'); });
-    addEventListener('pageshow', () => el.buy.classList.remove('is-loading'));
+    // Agregar al carrito (sin JS o sin carrito, el enlace lleva directo al checkout de Shopify)
+    const toast = $('#cartToast');
+    let toastTimer;
+    const hideToast = () => { toast.classList.remove('is-on'); clearTimeout(toastTimer); toastTimer = setTimeout(() => { toast.hidden = true; }, 260); };
+    el.buy.addEventListener('click', (e) => {
+      if (!el.buy.href || !window.MLCart) return;
+      e.preventDefault();
+      const s = read(), p = PRODUCTS[s.plan], v = p.variants[`${s.dias}|${s.dur}|${s.nut}`];
+      if (!v) return;
+      window.MLCart.add({ id: v.id, name: p.name, spec: el.spec.textContent, price: v.price });
+      window.MLCart.bump();
+      $('#toastItem').textContent = `${p.name} · ${el.spec.textContent} · ${clp.format(v.price)}`;
+      clearTimeout(toastTimer);
+      toast.hidden = false;
+      requestAnimationFrame(() => requestAnimationFrame(() => toast.classList.add('is-on')));
+      toastTimer = setTimeout(hideToast, 7000);
+    });
+    toast.addEventListener('click', (e) => { if (e.target.closest('[data-toast-close]')) hideToast(); });
+    d.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !toast.hidden) hideToast(); });
   }
 
   /* ---------- Header ---------- */

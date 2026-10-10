@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tu carrito | Method Lab</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=20261009-3">
+</head>
+<body class="cartpage">
+<header class="hdr is-solid">
+  <div class="wrap hdr__in">
+    <a class="hdr__logo" href="index.html" aria-label="Method Lab, volver al inicio">
+      <picture><source srcset="assets/logo-methodlab.webp" type="image/webp"><img src="assets/logo-methodlab.png" alt="Method Lab — Fitness &amp; Strength Club" width="300" height="161"></picture>
+    </a>
+    <div class="hdr__act">
+      <a class="btn btn--ghost btn--sm" href="index.html#planes">← Seguir viendo planes</a>
+    </div>
+  </div>
+</header>
+
+<main class="cart wrap" id="main">
+  <p class="eyebrow">Tu carrito</p>
+  <h1 class="h2">Revisa tu plan antes de pagar.</h1>
+
+  <div class="cart__grid">
+    <section aria-labelledby="cartItemsT">
+      <h2 class="vh" id="cartItemsT">Planes en el carrito</h2>
+      <ul class="cart__list" id="cartList" aria-live="polite"></ul>
+      <div class="cart__empty" id="cartEmpty" hidden>
+        <p class="h3">Tu carrito está vacío.</p>
+        <p class="muted">Elige días por semana, duración y si quieres nutricionista.</p>
+        <a class="btn btn--red" href="index.html#planes">Ver planes</a>
+      </div>
+    </section>
+
+    <aside class="cart__sum" id="cartSum" aria-labelledby="cartSumT">
+      <h2 class="cfg__name" id="cartSumT">Resumen</h2>
+      <dl>
+        <div><dt>Planes</dt><dd id="cartCount">0</dd></div>
+        <div class="cart__total"><dt>Total</dt><dd id="cartTotal">$0</dd></div>
+      </dl>
+      <a class="btn btn--red btn--block" id="cartPay" href="https://methodlab.cl/cart">
+        <span class="btn__lbl">Ir a pagar</span><span class="spin" aria-hidden="true"></span>
+      </a>
+      <p class="cfg__fine">Pagarás en el checkout oficial de Shopify de Method Lab. Matrícula gratis · hasta 3 cuotas sin interés.</p>
+    </aside>
+  </div>
+</main>
+
+<script src="cart.js?v=20261009-3"></script>
+<script>
+(() => {
+  const C = window.MLCart, list = document.getElementById('cartList'), empty = document.getElementById('cartEmpty');
+  const sum = document.getElementById('cartSum'), pay = document.getElementById('cartPay');
+  const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  function render() {
+    const c = C.read();
+    empty.hidden = c.length > 0; sum.hidden = c.length === 0;
+    list.innerHTML = c.map((i) => `
+      <li class="cart__item">
+        <div class="cart__info">
+          <p class="cart__name">${esc(i.name)}</p>
+          <p class="cart__spec">${esc(i.spec)}</p>
+          <p class="cart__unit">${C.clp.format(i.price)} c/u</p>
+        </div>
+        <div class="cart__qty" role="group" aria-label="Cantidad de ${esc(i.name)}">
+          <button type="button" data-q="-1" data-id="${i.id}" aria-label="Quitar uno">−</button>
+          <span aria-live="polite">${i.qty}</span>
+          <button type="button" data-q="1" data-id="${i.id}" aria-label="Agregar uno" ${i.qty >= 5 ? 'disabled' : ''}>+</button>
+        </div>
+        <p class="cart__line">${C.clp.format(i.price * i.qty)}</p>
+        <button class="cart__rm" type="button" data-rm="${i.id}">Eliminar</button>
+      </li>`).join('');
+    document.getElementById('cartCount').textContent = C.count(c);
+    document.getElementById('cartTotal').textContent = C.clp.format(C.total(c));
+    if (c.length) pay.href = C.checkoutUrl(c);
+  }
+  list.addEventListener('click', (e) => {
+    const q = e.target.closest('[data-q]'), rm = e.target.closest('[data-rm]');
+    const c = C.read();
+    if (q) { const it = c.find((i) => String(i.id) === q.dataset.id); if (it) C.setQty(it.id, it.qty + Number(q.dataset.q)); }
+    if (rm) C.setQty(Number(rm.dataset.rm), 0);
+  });
+  pay.addEventListener('click', () => pay.classList.add('is-loading'));
+  addEventListener('pageshow', () => pay.classList.remove('is-loading'));
+  addEventListener('ml:cart', render);
+  render();
+})();
+</script>
+</body>
+</html>
